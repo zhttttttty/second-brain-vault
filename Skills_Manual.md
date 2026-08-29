@@ -2,7 +2,7 @@
 description: 本地 AI 技能说明手册
 type: system
 tags: [知识管理/Obsidian, 技术/Agent]
-updated: 2026-07-23
+updated: 2026-08-29
 ---
 # Skills Manual
 
@@ -703,6 +703,7 @@ AI 负责：
 
 - 不手动猜数量。
 - 使用 `.agents/skills/system-sync/scripts/vault_inventory.py` 进行跨平台盘点。
+- 使用 `.agents/skills/system-sync/scripts/validate_vault.py` 对 Frontmatter、标签、`related`、模板映射、说明文档计数和兼容入口做确定性校验。
 - 涉及卡片数、模板数、技能数、README 数、Base、MOC、附件数时，必须从文件系统计算。
 - 需要说明统计口径。
 - 当前目录不是 Git 仓库时继续盘点，不把缺少 Git 元数据当作失败。
@@ -717,7 +718,14 @@ AI 负责：
 - 目录级 `README.md`
 - `Skills_Manual.md`
 
-注意：这个技能只维护系统信息，不替代内容创作。
+校验依赖仅用于维护与 CI，不影响 Obsidian 日常使用：
+
+```bash
+python -m pip install -r requirements-dev.txt
+python .agents/skills/system-sync/scripts/validate_vault.py --vault .
+```
+
+注意：这个技能只维护系统信息，不替代内容创作；规则文件是软性契约，确定性结构问题应以校验脚本结果为准。
 
 ---
 

@@ -4,7 +4,8 @@ card_type: insight
 tags: [知识管理/做笔记]
 created: 2025-01-01
 source: 自己思考
-related: [[_EXAMPLE_mentalmodel_第一性原理]]
+related:
+  - "[[_EXAMPLE_mentalmodel_第一性原理]]"
 ---
 
 # 记录是思考的外部硬盘

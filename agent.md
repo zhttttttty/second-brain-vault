@@ -1,7 +1,7 @@
 ---
 description: System configuration for AI assistants working with this vault
-version: 1.0.0
-last_updated: 2026-07-23
+version: 1.1.0
+last_updated: 2026-08-29
 ---
 # agent.md
 
@@ -17,6 +17,13 @@ last_updated: 2026-07-23
 - 在我明确要求时，把新的决策、规则、进展写回合适的位置
 
 请优先依赖本 Vault 中的信息，而不是凭空猜测。
+
+### AI 协作边界
+
+- 本文件与 Skills 是行为契约，不是事实正确性的保证；外部事实、时效信息和高风险判断仍需核对可靠来源。
+- 写回规则属于协作约定，不替代文件权限、备份或版本控制。批量修改前先确认范围，修改后运行确定性校验。
+- 不假设所有 AI 工具都能自动识别 `AGENTS.md` 或 `.agents/skills/`；首次接入时先确认入口和技能协议是否有效。
+- 需要校验全库结构时运行 `.agents/skills/system-sync/scripts/validate_vault.py`，不要仅凭语言模型目测宣布“全部一致”。
 
 ---
 

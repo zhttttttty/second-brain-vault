@@ -12,6 +12,10 @@ updated: 2026-08-29
 
 ## 2026-08-29
 
+- `系统增强` | 增加确定性 Vault 校验脚本与 GitHub Actions，检查 YAML、标签、related 类型、模板映射、文档计数和跨平台 Agent 入口 | `.agents/skills/system-sync/scripts/validate_vault.py`、`.github/workflows/validate-vault.yml`
+- `示例修复` | 修正 5 张示例卡中未加引号的 related Wikilink，避免被 YAML 解析为嵌套数组 | `04_Knowledge/00_Cards/_EXAMPLE_*.md`
+- `文档澄清` | 将 23 种模板区分为原子知识、实体资源与导航实践类型，并明确 AI 规则、溯源和质量信号的能力边界 | `README.md`、`agent.md`、`00_System/`
+- `兼容性增强` | 补充 Windows 软链自检、跨 Agent 协议差异和 Obsidian 专属能力的迁移边界 | `QUICK_START.md`、`README.md`
 - `规则优化` | 参考中文个人知识库标签框架，将标签收敛为 1～3 个中文层级主题；类型、来源、状态改由 Properties 表达，并同步模板、示例与 Skills | `00_System/Vault_Schema.md`、`04_Knowledge/00_Cards/.templates/`
 - `系统修复` | 对齐 Daily Note 与附件的 Obsidian 配置 | `.obsidian/daily-notes.json`、`.obsidian/app.json`
 - `规则修复` | 明确标签分类法适用范围，补充 `task` 形态标签与 CHANGELOG 记录边界 | `00_System/Vault_Schema.md`

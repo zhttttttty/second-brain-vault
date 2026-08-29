@@ -141,6 +141,8 @@ contradictions: [other-card-slug]
 
 `check-health` 会把 `confidence: low`、`contested: true` 和未登记主题标签列入待审。
 
+这些字段是**复核提示**，不是统计学概率或事实认证。填写来源、置信度或逐段溯源只能提高可追踪性，不能替代对来源质量、时效性和推理链条的检查。
+
 ## 内容索引与变更日志
 
 - **全库索引**：主题地图 `04_Knowledge/01_Topics/` + MOC 卡片

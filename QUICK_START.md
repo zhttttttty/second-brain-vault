@@ -39,6 +39,15 @@ git add -A
 git commit -m "initial commit from starter"
 ```
 
+### 克隆后先做一次自检（推荐）
+
+```bash
+python -m pip install -r requirements-dev.txt
+python .agents/skills/system-sync/scripts/validate_vault.py --vault .
+```
+
+该检查会验证 Frontmatter、模板映射、技能手册计数，以及 `AGENTS.md`、`.claude/skills` 两个兼容入口。Windows 如果提示它们被检出成软链占位文件，请先启用开发者模式和 Git 符号链接支持，再重新克隆；不要把只包含目标路径的普通文件当成有效入口。
+
 ---
 
 ## 第 2 步：用 Obsidian 打开
@@ -113,6 +122,8 @@ git commit -m "initial commit from starter"
 2. 读取 `04_Knowledge/00_Cards/.templates/Insight_Card.md`
 3. 填充内容并保存到 `04_Knowledge/00_Cards/`
 
+> **先少后多**：23 种模板是能力上限，不是待完成清单。最初只用 `insight`、`term`、`model`、`book` / `book-note` 和 `resource` / `tool` 即可；出现稳定需求后再启用专用类型。
+
 ---
 
 ## 第 6 步：试跑日常技能
@@ -166,6 +177,7 @@ AI 会基于你填好的 `Current_Priorities.md` + `06_Tasks/Tasks.md` + `06_Tas
 
 - 确保 `.claude/skills/` 和 `.agents/skills/` 在 Vault 根目录
 - 在 Windows 上复制仓库后，先确认 `AGENTS.md → agent.md` 与 `.claude/skills → .agents/skills` 两个软链仍然有效
+- 运行 `python .agents/skills/system-sync/scripts/validate_vault.py --vault .` 获取确定性的入口检查结果
 - 确保你的 AI 编码工具（Codex / ZCode 等）版本支持 Skills
 - 查看具体 Skill 的 `SKILL.md` 了解调用约定
 

@@ -25,7 +25,7 @@ def root_readme(text: str) -> str:
         "主题默认从一个文件开始，不预建复杂子目录。",
     )
     text = re.sub(r"^\| 3 张示例模型卡 \|.*\n", "", text, flags=re.MULTILINE)
-    text = text.replace("# 23 种原子化卡片 + 9 张示例", "# 23 种原子化卡片")
+    text = text.replace("# 23 种标准化卡片模板 + 9 张示例", "# 23 种标准化卡片模板")
     text = text.replace("# 长期主题地图（含示例主题 + 知识体系构建元主题）", "# 长期主题地图（含知识体系构建元主题）")
     return text
 

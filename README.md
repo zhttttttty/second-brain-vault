@@ -13,7 +13,7 @@
 一套可以直接用的 Obsidian Vault 框架，包含：
 
 - **8 个主目录的信息架构** — 系统规则 / 上下文 / 日记 / 项目 / 知识 / 参考 / 任务 / Bases
-- **23 种原子化卡片模板** — model / insight / book / mentalmodel / person / tool / quote …
+- **23 种标准化卡片模板** — 原子知识、实体资料、资源工具与导航卡片各有明确用途
 - **17 个开箱即用的 AI 技能（Skills）** — `/today`、`/digest`、`/weekly-review`、`/reading-coach`、`/card-creator`、`knowledge-system` 等
 - **内置知识体系方法论** — 六步法、5 步模型提炼、4 要素存储、6 种关系工具箱、密度分层
 - **完整的 AI 协作规则** — `agent.md` 保存单一规则源，`AGENTS.md` 作为兼容入口指向它
@@ -74,7 +74,7 @@
 | AI 怎么理解我？| `agent.md` + `01_Context/` 的稳定背景与当前重点 |
 | 怎么避免重复？| `.templates/` 提供统一模板，所有卡片/项目走同一个骨架 |
 | 标签越用越乱？| `Vault_Schema.md` 登记中文层级主题；类型、来源和状态不再重复打标签 |
-| 知识怎么沉淀？| 23 种原子化卡片 + 双向链接构成知识网络 |
+| 知识怎么沉淀？| 标准化卡片模板 + 双向链接构成知识网络；不要求每种类型都使用 |
 | 每天怎么推进？| 内置 `/today`、`/closeday`、`/weekly-review` 三个常用 AI 技能 |
 
 ---
@@ -114,7 +114,7 @@ cd my-brain
 ├── 02_Daily/          # 每日记录（含 Daily Note 模板）
 ├── 03_Projects/       # 轻量项目管理（单页模板 + 按需产出目录）
 ├── 04_Knowledge/      # 长期知识沉淀
-│   ├── 00_Cards/      # 23 种原子化卡片 + 9 张示例
+│   ├── 00_Cards/      # 23 种标准化卡片模板 + 9 张示例
 │   └── 01_Topics/     # 长期主题地图（含示例主题 + 知识体系构建元主题）
 ├── 05_References/     # 剪藏消化（Inbox → 卡片/项目/行动 → 精选 Library）
 ├── 06_Tasks/          # Inbox 捕获 + 非项目任务管理
@@ -181,6 +181,19 @@ cd my-brain
 
 > 本模板以 `agent.md` 为规则单一来源，并通过 `AGENTS.md` 和 `.claude/skills` 提供兼容入口。不同 AI 工具识别的文件名和 Skill 协议可能不同，首次使用时应确认入口是否被正确加载。
 
+**兼容性与能力边界**：
+
+- `agent.md` 和 Skills 是行为契约，可以减少错误路由和无依据猜测，但不是权限系统，也不能保证外部事实正确；重要结论仍需核对来源。
+- 核心内容以 Markdown 保存，普通正文具有较好的可迁移性；Wikilinks、`.obsidian/` 配置和 `.base` 视图在其他编辑器中无法获得完全等价的体验。
+- 17 个 Skills 是可组合的工作流组件，不是自动运行的中央编排器；是否能触发以及如何调用取决于具体 AI 工具。
+
+克隆后可运行确定性校验，检查 Frontmatter 类型、卡片模板映射、技能手册计数和跨平台入口：
+
+```bash
+python -m pip install -r requirements-dev.txt
+python .agents/skills/system-sync/scripts/validate_vault.py --vault .
+```
+
 **Obsidian 插件**（Core 插件够用，可选增强）：
 - Templater — 可选；当前 Daily Note 使用 Obsidian 核心 Templates，卡片默认由 AI Skill 创建或手工复制后填写
 - Dataview — 数据库式查询
@@ -209,6 +222,7 @@ cd my-brain
 - **卡片类型**：直接在 `04_Knowledge/00_Cards/.templates/` 添加新类型
 - **AI 技能**：在 `.agents/skills/` 下新建目录，写一个 `SKILL.md` 即可
 - **规则**：`00_System/` 下的规则都是你的，改即可。改完告诉 AI"请读一下新规则"
+- **验证**：批量修改后运行 `validate_vault.py`；公开仓库中的 GitHub Actions 会执行同一套检查
 
 ---
 

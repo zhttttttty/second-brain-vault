@@ -1,6 +1,6 @@
 ---
 name: system-sync
-description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中。适用于更新 `00_System/Vault_Map.md`、`agent.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README 数量、Base 数量、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / agent / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
+description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中，并运行确定性结构校验。适用于更新 `00_System/Vault_Map.md`、`agent.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README 数量、Base 数量、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / agent / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
 ---
 
 # System Sync: 系统信息同步器
@@ -318,7 +318,21 @@ MOC 不更新条件：
 - 用户明确表示不需要添加到 MOC。
 - 新增内容还没有整理成稳定卡片。
 
-### Step 6: 输出同步报告
+### Step 6: 运行确定性校验
+
+完成更新后运行：
+
+```text
+python .agents/skills/system-sync/scripts/validate_vault.py --vault .
+```
+
+脚本检查 Frontmatter YAML、`tags` / `related` 类型、未登记标签、卡片模板映射、说明文档计数、技能手册章节，以及 `AGENTS.md` / `.claude/skills` 兼容入口。
+
+- 缺少 PyYAML 时，提示用户运行 `python -m pip install -r requirements-dev.txt`，不要把依赖缺失误报成 Vault 内容错误。
+- 脚本失败时保留具体错误，不要用语言模型目测结果覆盖确定性错误。
+- Windows 软链被检出为普通占位文件时，报告兼容性问题，不自动删除或覆盖用户文件。
+
+### Step 7: 输出同步报告
 
 同步完成后输出：
 

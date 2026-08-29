@@ -15,6 +15,12 @@ tags: [知识管理/Obsidian]
 - `Naming_Conventions.md` — 文件、目录、项目和 Base 命名规范
 - `Knowledge_Workflow.md` — 「1小时构建知识体系」方法论如何落到卡片/主题/项目
 
+### 自动校验
+
+- `.agents/skills/system-sync/scripts/vault_inventory.py` — 以统一口径盘点卡片、模板、技能、README、Base、MOC 和附件
+- `.agents/skills/system-sync/scripts/validate_vault.py` — 校验 Frontmatter 类型、标签、`related`、模板映射、文档计数和 Agent 兼容入口
+- `.github/workflows/validate-vault.yml` — 在 push / pull request 时运行同一套确定性校验
+
 AI 的协作流程和写回原则统一维护在根目录 `agent.md`，不在这里重复维护。
 
 ### 附件管理
@@ -54,8 +60,8 @@ AI 的协作流程和写回原则统一维护在根目录 `agent.md`，不在这
 
 ## 04_Knowledge
 长期知识沉淀与主题连接
-- `00_Cards/` — 原子化知识卡片
-  - `.templates/` — 卡片模板（23 种类型）
+- `00_Cards/` — 标准化知识卡片与实体卡片
+  - `.templates/` — 标准化卡片模板（23 种类型；包含原子知识、实体资料、资源工具与导航类型）
     - `model`, `insight`, `counterintuitive`, `paradox`, `question`, `story`, `quote`, `term`, `mentalmodel`, `book`, `book-note`, `person`, `resource`, `tool`, `opensource`, `course`, `subscription`, `prompt`, `checklist`, `tip`, `moc`, `techstack`, `atomic-habit`
 - `01_Topics/` — 长期关注领域的知识地图与阶段性理解
   - 默认一个主题对应一个文件，内容增长后再按需升级为目录

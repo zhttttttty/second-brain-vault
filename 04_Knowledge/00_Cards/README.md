@@ -1,19 +1,23 @@
 ---
 title: Knowledge Cards
-description: Atomic knowledge cards — one card, one idea
+description: Standardized cards for atomic knowledge, entities, resources, and navigation
 type: system
 tags: [知识管理/做笔记]
 ---
 
-# 00_Cards — 原子化知识卡片
+# 00_Cards — 标准化知识卡片与实体卡片
 
-> 一张卡片，只讲一件事。卡片之间通过 `related` 字段和 `[[双向链接]]` 构建知识网络。
+> 知识型卡片尽量一张只讲一个观点；实体、资源和导航卡片则围绕一个稳定对象组织。卡片之间通过 `related` 字段和 `[[双向链接]]` 构建知识网络。
 
 ---
 
 ## 卡片类型（23 种）
 
-完整模板见 `.templates/` 目录。每种类型针对一种特定的知识单元：
+完整模板见 `.templates/` 目录。23 种模板分为三组，不应全部套用“一个观点”的原子化要求：
+
+- **原子知识与方法**：`model`、`insight`、`mentalmodel`、`term`、`question`、`quote`、`tip`、`checklist` 等
+- **实体与资源**：`book`、`person`、`resource`、`tool`、`opensource`、`course`、`subscription`、`techstack` 等
+- **导航与实践记录**：`moc`、`book-note`、`prompt`、`atomic-habit` 等
 
 | 类型 | 用途 | 示例卡片 |
 |------|------|----------|
@@ -60,7 +64,7 @@ tags: [知识管理/做笔记]
 
 ## 卡片设计理念
 
-1. **原子化**：一张卡片只讲一件事。信息太多就拆成多张
+1. **边界清晰**：知识型卡片只讲一个主要观点；实体型卡片只围绕一个稳定对象
 2. **可链接**：通过 `related` 字段和 `[[wiki链接]]` 关联其他卡片
 3. **有来源**：`source` 字段记录这个知识从哪里来
 4. **可复用**：同一张卡片可以在多个项目、多篇文章里引用

@@ -5,7 +5,8 @@ tags: [知识管理/做笔记]
 created: 2025-01-01
 source: 《卡片笔记写作法》
 cover:
-related: [[_EXAMPLE_book_卡片笔记写作法]]
+related:
+  - "[[_EXAMPLE_book_卡片笔记写作法]]"
 ---
 
 # Niklas Luhmann
