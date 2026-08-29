@@ -4,7 +4,7 @@ card_type: resource
 title: "{{资源名称}}"
 resource_type: "{{博客/YouTube频道/Newsletter/Podcast/网站/其他}}"
 url: "{{https://...}}"
-tags: [card, resource, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：从哪里发现这个资源}}"
 related: []

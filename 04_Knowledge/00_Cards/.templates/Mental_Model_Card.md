@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: mentalmodel
-tags: [card, mentalmodel, "{{学科领域}}", lollapalooza]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：查理芒格演讲/穷查理宝典/具体文章}}"
 related: []

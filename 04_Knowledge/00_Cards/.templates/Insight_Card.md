@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: insight
-tags: [card, insight, "{{topic}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己思考/某篇文章/某次对话}}"
 related: []

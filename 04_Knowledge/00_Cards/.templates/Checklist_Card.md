@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: checklist
-tags: [card, checklist, "{{category}}", "{{topic}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己整理/书/文章/经验总结}}"
 related: []

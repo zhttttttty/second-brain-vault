@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: model
-tags: [card, model, 认知]
+tags: [知识管理/方法论]
 created: 2026-08-28
 source: 1小时构建知识体系
 source_type: 原创

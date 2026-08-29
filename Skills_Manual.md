@@ -1,6 +1,7 @@
 ---
 description: 本地 AI 技能说明手册
-tags: [system, skills, manual]
+type: system
+tags: [知识管理/Obsidian, 技术/Agent]
 updated: 2026-07-23
 ---
 # Skills Manual
@@ -439,7 +440,7 @@ AI 负责：
 - 生成文件名：`{类型}_{卡片标题}.md`。
 - 写入 `04_Knowledge/00_Cards/`。
 - 尽量建立有意义的 `related` 链接，避免过度链接。
-- 领域标签只使用 `00_System/Vault_Schema.md` 已登记值。
+- `tags` 只使用 `00_System/Vault_Schema.md` 已登记的 1～3 个主题标签；类型、来源与状态使用 Properties。
 - 写入完成后同步更新 `04_Knowledge/CHANGELOG.md`。
 
 注意：一张卡片只讲一件事。如果输入包含多个独立主题，优先拆分。

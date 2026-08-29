@@ -2,7 +2,7 @@
 type: card
 card_type: subscription
 title: "{{服务名称}}"
-tags: [card, subscription, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 subscribed: "{{订阅日期 YYYY-MM-DD}}"
 renewal: "{{续费日期 YYYY-MM-DD}}"

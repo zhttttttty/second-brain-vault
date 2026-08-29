@@ -2,7 +2,8 @@
 title: Projects Directory
 description: 项目管理 — 每个项目一个目录
 created: 2026-04-23
-tags: [project, system]
+type: system
+tags: [知识管理/Obsidian]
 ---
 
 # Projects

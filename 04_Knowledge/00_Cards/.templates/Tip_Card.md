@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: tip
-tags: [card, tip, "{{tool_name}}", "{{category}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己摸索/文档/视频/他人分享}}"
 related: []

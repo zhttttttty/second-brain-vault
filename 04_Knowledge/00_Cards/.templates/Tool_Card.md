@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: tool
-tags: [card, tool, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：从哪里了解到这个工具}}"
 related: []

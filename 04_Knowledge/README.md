@@ -3,7 +3,8 @@ title: Knowledge Directory
 description: 长期知识卡片与主题地图
 created: 2026-04-23
 updated: 2026-07-22
-tags: [knowledge, system]
+type: system
+tags: [知识管理/Obsidian]
 ---
 # Knowledge
 

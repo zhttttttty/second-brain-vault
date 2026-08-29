@@ -3,7 +3,7 @@ type: card
 card_type: book
 book: "{{书名}}"
 author: "{{作者}}"
-tags: [card, book, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 douban_url: "{{https://book.douban.com/...}}"
 cover: "{{封面图路径或URL}}"

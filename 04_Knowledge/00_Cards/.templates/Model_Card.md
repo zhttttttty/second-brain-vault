@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: model
-tags: [card, model, "{{主题领域}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{出处：URL 或 书名/文章/对话/自己思考}}"
 source_type: "{{原创 / 改编自 X / 转述自 X}}"

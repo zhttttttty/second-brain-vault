@@ -1,6 +1,7 @@
 ---
 description: File and folder naming conventions
-tags: [system, naming, convention]
+type: system
+tags: [知识管理/Obsidian]
 ---
 # Naming Conventions
 

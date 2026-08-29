@@ -1,7 +1,8 @@
 ---
 title: Knowledge Cards
 description: Atomic knowledge cards — one card, one idea
-tags: [knowledge, cards, system]
+type: system
+tags: [知识管理/做笔记]
 ---
 
 # 00_Cards — 原子化知识卡片
@@ -73,7 +74,7 @@ tags: [knowledge, cards, system]
 2. 复制到 `00_Cards/` 根目录
 3. 按命名规范重命名：`{type}_{主题}.md`
 4. 填写 frontmatter 和正文，并清除全部 `{{...}}` 占位符
-5. 确认领域标签已登记在 `00_System/Vault_Schema.md`
+5. 填写 1～3 个已登记的主题标签；类型只写在 `type` / `card_type`，无明确主题时使用 `tags: []`
 
 模板中的占位值已加引号以保证复制后的 YAML 可以解析，但带占位符的文件仍不是完成卡片。
 

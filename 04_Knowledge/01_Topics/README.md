@@ -3,7 +3,8 @@ title: Topics Directory
 description: 长期主题地图目录
 created: 2026-05-26
 updated: 2026-07-22
-tags: [knowledge, topics, system]
+type: system
+tags: [知识管理/做笔记]
 ---
 # Topics
 

@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: person
-tags: [card, person, "{{领域/角色}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：从哪里了解这个人}}"
 cover: "{{图片路径或 URL}}"

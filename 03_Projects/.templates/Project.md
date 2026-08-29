@@ -1,12 +1,12 @@
 ---
 title: "{{ProjectName}}"
 description: "{{Brief project description}}"
+type: project
 status: planning
 created: "{{YYYY-MM-DD}}"
 updated: "{{YYYY-MM-DD}}"
 deadline:
-tags:
-  - project
+tags: ["{{主题标签，如：工作/产品}}"]
 ---
 
 # {{ProjectName}}

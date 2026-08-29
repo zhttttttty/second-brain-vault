@@ -1,69 +1,125 @@
 ---
-description: 领域范围、标签分类法、建卡门槛与质量信号约定
-tags: [system, schema, taxonomy]
+description: 领域范围、主题标签分类法、建卡门槛与质量信号约定
+type: system
+tags: [知识管理/Obsidian, 知识管理/方法论]
 updated: 2026-08-29
 ---
 # Vault Schema
 
 > 这是知识库的「领域契约」：约束 AI 行为、保证长期一致性的单一来源。
-> 建卡、写主题、打标签之前先读这里。灵感来自 Karpathy LLM Wiki 的 SCHEMA.md 模式。
+> 建卡、写主题、打标签之前先读这里。
 
 ## 领域范围（Domain）
-
-> 本库覆盖什么、不覆盖什么。明确范围能帮 AI 判断「什么该收录、什么该忽略」。
 
 - 当前核心领域：尚未设置；完成 `01_Context/About_Me.md` 与 `01_Context/Current_Priorities.md` 后再登记
 - 明确不收录：一次性琐事、纯娱乐、与长期方向无关的内容
 
-### 适用范围
+## 标签的职责
 
-本分类法约束 `01_Context/`、`02_Daily/`、`03_Projects/`、`04_Knowledge/`、`05_References/`、`06_Tasks/` 中的**正式内容**。
+本库遵循四种信息各司其职：
 
-以下文件不参与领域标签校验：
+| 机制 | 表达什么 | 示例 |
+|------|----------|------|
+| 文件夹 | 内容的物理位置与工作流阶段 | `05_References/01_Inbox/` |
+| `tags` | 跨目录检索的稳定主题 | `知识管理/Obsidian` |
+| Properties | 类型、状态、来源等结构化属性 | `type: card`、`card_type: insight` |
+| Wiki 链接 / `related` | 笔记之间的具体语义关系 | `[[term_知识复利]]` |
+
+因此，`card`、`insight`、`project`、`system`、`reference` 等不再作为标签；它们分别由 `type`、`card_type` 或文件位置表达。标签不复制文件夹、属性或链接。
+
+## 适用范围
+
+本分类法约束 `01_Context/`、`02_Daily/`、`03_Projects/`、`04_Knowledge/`、`05_References/`、`06_Tasks/` 中的正式内容。
+
+以下内容不参与正式标签校验，但仍应尽量使用相同写法：
 
 - `.agents/`、`.github/`、`.obsidian/` 中的工具与配置文件
 - `.templates/` 中尚未实例化的模板
 - `README.md`、`Skills_Manual.md` 等导航说明
 - `_EXAMPLE_*` 与 `_Example_Project/` 示例内容
 
-这样既保持正式内容的标签一致性，也避免用知识分类法约束工具说明和模板占位符。
+## 主题标签分类法（Tag Taxonomy）
 
-## 标签分类法（Tag Taxonomy）
+> `tags` 只放主题标签。分类层使用中文；产品、项目、协议、语言和缩写保留官方英文写法。
 
-> 目的：防止标签蔓延。所有文件的 `tags` 必须来自下表；需要新标签时，**先加到这里，再用**。
+### 知识管理
 
-### 第一层 · 形态（文件类型，固定）
+`知识管理/Obsidian` · `知识管理/做笔记` · `知识管理/阅读` · `知识管理/研究` · `知识管理/学习` · `知识管理/方法论`
 
-| 标签 | 含义 |
-|------|------|
-| `card` | 原子化知识卡片 |
-| `daily` | 每日记录 |
-| `project` | 项目 |
-| `topic` | 长期主题地图 |
-| `system` | 系统规则文件 |
-| `context` | 个人背景与优先级 |
-| `reference` | 外部剪藏 |
-| `task` | 全局或独立任务 |
+### 技术
 
-### 第二层 · 知识类型（对应卡片类型，固定）
+`技术/人工智能` · `技术/编程开发` · `技术/数据` · `技术/工具软件` · `技术/网络` · `技术/基础设施` · `技术/安全` · `技术/工程`
 
-`model` / `insight` / `mentalmodel` / `term` / `quote` / `book` / `book-note` / `person` / `tool` / `resource` / `opensource` / `course` / `prompt` / `checklist` / `tip` / `counterintuitive` / `paradox` / `question` / `story` / `moc` / `techstack` / `atomic-habit` / `subscription`
+### 科学
 
-> 卡片类型到模板的映射见 `.agents/skills/card-creator/references/card-type-map.md`。
+`科学/数学` · `科学/自然科学` · `科学/医学健康` · `科学/心理学` · `科学/环境`
 
-### 第三层 · 领域（自定义，先登记再用）
+### 金融
 
-| 标签 | 含义 |
-|------|------|
-| `investment` | 投资与资产配置 |
-| `knowledge-mgmt` | 知识管理与方法 |
-| `learning` | 学习与认知 |
-| `ai` | 人工智能 |
-| （按需扩展） | |
+`金融/个人理财` · `金融/投资` · `金融/保险` · `金融/房产` · `金融/宏观经济` · `金融/商业` · `金融/税务`
 
-> 规则：正式卡片的 `tags` 由「`card` + 知识类型 + 0～2 个领域标签」组成；其他正式内容使用对应形态标签，并可附 0～2 个领域标签。新领域标签先登记到这里，避免同义标签分裂（如同时出现 `ai`、`AI` 和 `人工智能`）。
+### 生活
 
-不确定领域时宁可暂不添加，也不要把临时主题词直接升级为领域标签。具体关系优先使用正文链接与 `related`，不要用标签复制文件夹或链接结构。
+`生活/健康` · `生活/家庭` · `生活/居住` · `生活/旅行` · `生活/消费` · `生活/习惯` · `生活/关系`
+
+### 社会
+
+`社会/法律` · `社会/政治` · `社会/教育` · `社会/媒体` · `社会/职场` · `社会/公共政策`
+
+### 人文
+
+`人文/哲学` · `人文/历史` · `人文/地理` · `人文/语言` · `人文/文学` · `人文/艺术` · `人文/宗教`
+
+### 工作
+
+`工作/职业发展` · `工作/管理` · `工作/产品` · `工作/营销` · `工作/沟通`
+
+### 创作
+
+`创作/写作` · `创作/设计` · `创作/媒体`
+
+### 专业名词标签
+
+专业名词仍挂在中文分类下，并统一使用官方大小写：
+
+`知识管理/Obsidian` · `技术/Agent` · `技术/OpenCode` · `技术/Codex` · `技术/MCP` · `技术/Docker` · `技术/Python` · `技术/CAD` · `技术/NAS` · `金融/ETF`
+
+同一名词只保留一种写法。例如统一使用 `技术/OpenCode`，不再并存 `opencode`、`OpenCode`、`技术/开源代码工具`。
+
+## 使用规则
+
+1. 一篇正式笔记通常使用 **1～3 个主题标签**；Daily、任务入口等无稳定主题时允许 `tags: []`。
+2. 使用最具体的叶子标签。例如使用 `技术/人工智能`，不再重复添加 `技术`。
+3. 标签层级最多三级。只有一个主题累计约 5 篇以上且确有检索价值时，才拆出第三级。
+4. 新标签先登记到本文件，再写入笔记；不确定时宁可暂不添加。
+5. 人名、作者、地点、年份、发布日期、版本号放入 Properties，不作为常规标签。
+6. 卡片类型看 `card_type`，内容形态看 `type`，处理阶段看目录或 `status`，来源详情看 `source`；不要再造对应标签。
+7. 具体关系优先使用正文 Wiki 链接与 `related`，不要把一次性关键词都升级为标签。
+
+### 推荐属性
+
+```yaml
+---
+type: card                 # card / daily / project / topic / context / reference / task / system
+card_type: insight         # 仅知识卡片使用
+tags:
+  - 知识管理/Obsidian      # 1～3 个稳定主题；无明确主题时可 []
+source: https://example.com
+status: active             # 仅确有状态管理需求时使用
+---
+```
+
+### 旧标签迁移
+
+| 旧标签 | 新表达 |
+|--------|--------|
+| `card`、`daily`、`project`、`topic`、`system`、`context`、`reference`、`task` | 移入 `type` 属性 |
+| `model`、`insight`、`book` 等 23 种卡片标签 | 移入 `card_type` 属性 |
+| `knowledge-mgmt` | 按内容改为 `知识管理/做笔记` 或 `知识管理/方法论` |
+| `learning` | `知识管理/学习` |
+| `ai` | `技术/人工智能` |
+| `investment` | `金融/投资` |
+| `知识管理`、`学习`、`哲学` 等扁平标签 | 改为最具体的已登记层级标签 |
 
 ## 建卡门槛（Create / Update / Don't create）
 
@@ -77,15 +133,13 @@ updated: 2026-08-29
 
 ## 质量信号（可选 frontmatter）
 
-> 让「弱断言不静默固化成事实」。观点密集或快速变化的领域尤其推荐填写。
-
 ```yaml
-confidence: high | medium | low   # 该卡片主张的证据充分程度
-contested: true                    # 存在未解决的矛盾时设 true
-contradictions: [other-card-slug]  # 与之冲突的卡片
+confidence: high | medium | low
+contested: true
+contradictions: [other-card-slug]
 ```
 
-`lint` / `check-health` 会把 `confidence: low` 和 `contested: true` 的卡片列入待审，避免弱结论悄悄变成「公认事实」。
+`check-health` 会把 `confidence: low`、`contested: true` 和未登记主题标签列入待审。
 
 ## 内容索引与变更日志
 

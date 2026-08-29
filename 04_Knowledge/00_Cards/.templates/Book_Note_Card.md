@@ -3,7 +3,7 @@ type: card
 card_type: book-note
 book: "{{书名}}"
 author: "{{作者}}"
-tags: [card, book-note, "{{topic}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{书名}} · {{章节/页码}}"
 related: []

@@ -1,6 +1,7 @@
 ---
 description: Visual map and overview of the vault structure
-tags: [system, map, overview]
+type: system
+tags: [知识管理/Obsidian]
 ---
 # Vault Map
 

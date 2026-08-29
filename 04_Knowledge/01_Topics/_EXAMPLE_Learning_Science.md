@@ -3,7 +3,8 @@ title: Learning Science
 description: 学习科学长期主题地图示例
 created: 2026-03-29
 updated: 2026-07-22
-tags: [knowledge, learning, science]
+type: topic
+tags: [知识管理/学习, 科学/心理学]
 status: example
 ---
 # 示例：Learning Science

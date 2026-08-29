@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: tool
-tags: [card, tool, 知识管理, 笔记]
+tags: [知识管理/Obsidian]
 created: 2025-01-01
 source: 官方网站
 related: [[_EXAMPLE_book_卡片笔记写作法]]

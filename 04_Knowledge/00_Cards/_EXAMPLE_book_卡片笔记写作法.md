@@ -3,11 +3,13 @@ type: card
 card_type: book
 book: 卡片笔记写作法
 author: Sönke Ahrens
-tags: [card, book, 知识管理, 写作]
+tags: [知识管理/做笔记, 创作/写作]
 created: 2025-01-01
 douban_url: https://book.douban.com/subject/35503571/
 cover:
-related: [[_EXAMPLE_insight_记录是思考的外部硬盘]], [[_EXAMPLE_person_Niklas_Luhmann]]
+related:
+  - "[[_EXAMPLE_insight_记录是思考的外部硬盘]]"
+  - "[[_EXAMPLE_person_Niklas_Luhmann]]"
 ---
 
 # 卡片笔记写作法

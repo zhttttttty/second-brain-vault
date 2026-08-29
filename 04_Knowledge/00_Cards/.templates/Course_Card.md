@@ -3,7 +3,7 @@ type: card
 card_type: course
 course: "{{课程名称}}"
 instructor: "{{讲师/机构}}"
-tags: [card, course, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：从哪里了解到这个课程}}"
 platform: "{{平台：Coursera/Udemy/YouTube/得到/其他}}"

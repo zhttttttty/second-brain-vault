@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: techstack
-tags: [card, techstack, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：产品名称/项目名称/网址}}"
 related: []

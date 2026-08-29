@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: quote
-tags: [card, quote, 学习]
+tags: [知识管理/学习]
 created: 2025-01-01
 source: 《论语·为政》
 related: [[_EXAMPLE_insight_记录是思考的外部硬盘]]

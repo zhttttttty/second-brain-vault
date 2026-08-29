@@ -3,7 +3,8 @@ title: 知识体系构建
 description: 长期主题地图：如何把零散信息提炼成模型、按关系组成可用的知识体系
 created: 2026-08-28
 updated: 2026-08-28
-tags: [topic, knowledge-mgmt]
+type: topic
+tags: [知识管理/做笔记, 知识管理/方法论]
 status: active
 ---
 # 知识体系构建

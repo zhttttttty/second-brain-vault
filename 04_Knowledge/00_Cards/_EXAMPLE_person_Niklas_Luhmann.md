@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: person
-tags: [card, person, 社会学, 知识管理]
+tags: [知识管理/做笔记]
 created: 2025-01-01
 source: 《卡片笔记写作法》
 cover:

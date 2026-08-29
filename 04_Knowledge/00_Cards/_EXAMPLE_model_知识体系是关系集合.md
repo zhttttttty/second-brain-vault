@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: model
-tags: [card, model, 知识管理]
+tags: [知识管理/做笔记, 知识管理/方法论]
 created: 2026-08-28
 source: 1小时构建知识体系
 source_type: 改编自 Sönke Ahrens《卡片笔记写作法》

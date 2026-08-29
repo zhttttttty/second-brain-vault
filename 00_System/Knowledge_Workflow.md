@@ -1,6 +1,7 @@
 ---
 description: 「1小时构建知识体系」方法论如何落到本 Vault 的卡片、主题与项目
-tags: [system, knowledge, workflow]
+type: system
+tags: [知识管理/做笔记, 知识管理/方法论]
 updated: 2026-08-28
 ---
 # Knowledge Workflow · 知识提炼工作流
@@ -30,7 +31,7 @@ updated: 2026-08-28
 | 方法论 4 要素 | Obsidian 卡片位置 |
 |--------------|------------------|
 | 序号 | 正文「知识点」章节的 `[1][2][3]` 编号 |
-| 关键词 | frontmatter `tags` + 正文 `**加粗**` |
+| 关键词 | 稳定主题放 frontmatter `tags`；具体关键词在正文 `**加粗**` |
 | 出处 | frontmatter `source` 字段（URL 或来源名） |
 | 思考 | 正文「我的思考」章节 |
 

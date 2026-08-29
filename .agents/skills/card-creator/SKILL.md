@@ -60,9 +60,11 @@ without inventing a frontmatter field.
 Use `待补充` or an empty optional value for genuinely unknown information; leave
 no literal `{{...}}` placeholders in the completed card. Read
 `references/writing-rules.md` when filling frontmatter, filenames, or links.
-Use only registered domain tags from `00_System/Vault_Schema.md`. If no domain
-tag clearly applies, omit it instead of inventing one; propose a Schema update
-separately when a genuinely stable new domain emerges.
+Use `tags` only for 1–3 stable subject tags registered in
+`00_System/Vault_Schema.md`; never repeat `type`, `card_type`, source, status,
+people, dates, or filenames as tags. If no subject tag clearly applies, use an
+empty list instead of inventing one. Propose a Schema update separately when a
+genuinely stable new subject emerges.
 
 **Completion:** Every required template field is populated, intentionally left
 empty, or marked `待补充`; frontmatter contains valid YAML and no unintended

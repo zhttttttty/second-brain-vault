@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: mentalmodel
-tags: [card, mentalmodel, 哲学, 工程学, lollapalooza]
+tags: [人文/哲学, 技术/工程]
 created: 2025-01-01
 source: 亚里士多德《物理学》
 related: [[_EXAMPLE_insight_记录是思考的外部硬盘]]

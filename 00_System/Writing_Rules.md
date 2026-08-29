@@ -1,6 +1,7 @@
 ---
 description: Writing and Markdown conventions for vault content
-tags: [system, writing, markdown]
+type: system
+tags: [创作/写作]
 ---
 # Writing Rules
 

@@ -1,11 +1,9 @@
 ---
 description: 外部剪藏的收集、消化与精选原文保留流程
+type: system
 created: 2026-04-23
 updated: 2026-07-21
-tags:
-  - system
-  - references
-  - workflow
+tags: [知识管理/研究, 知识管理/做笔记]
 ---
 
 # References
@@ -18,7 +16,7 @@ tags:
 └── 02_Library/     # 已消化且原文本身值得长期保留的精选文章
 ```
 
-不按 AI、教育、产品等主题建立目录。跨主题内容使用 `tags`、知识卡片和项目链接组织。
+不按 AI、教育、产品等主题建立目录。跨主题内容使用已登记的中文层级主题标签、知识卡片和项目链接组织；`reference` 由 `type` 属性表达，不再作为标签。
 
 ## 工作流程
 
@@ -79,12 +77,13 @@ tags:
 ```yaml
 ---
 title: "文章标题"
+type: reference
 author: "作者"
 source: "https://example.com/article"
 published:
 clipped: "YYYY-MM-DD"
 tags:
-  - reference
+  - 知识管理/研究
 ---
 ```
 

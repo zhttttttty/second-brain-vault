@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: prompt
-tags: [card, prompt, "{{category}}", "{{tool_name}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己设计/社区分享/文档/他人分享}}"
 related: []

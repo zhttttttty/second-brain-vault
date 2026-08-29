@@ -1,13 +1,12 @@
 ---
 title: Example Project
 description: 展示轻量项目主页的示例项目
+type: project
 status: active
 created: 2025-01-01
 updated: 2026-07-21
 deadline:
-tags:
-  - project
-  - example
+tags: [知识管理/Obsidian]
 ---
 
 # Example Project

@@ -1,8 +1,8 @@
 ---
 title: Inbox
 description: 尚未分类的新任务入口
-tags:
-  - task
+type: task
+tags: []
 ---
 
 # Inbox

@@ -17,6 +17,7 @@
 - **17 个开箱即用的 AI 技能（Skills）** — `/today`、`/digest`、`/weekly-review`、`/reading-coach`、`/card-creator`、`knowledge-system` 等
 - **内置知识体系方法论** — 六步法、5 步模型提炼、4 要素存储、6 种关系工具箱、密度分层
 - **完整的 AI 协作规则** — `agent.md` 保存单一规则源，`AGENTS.md` 作为兼容入口指向它
+- **可控的中文层级标签体系** — 标签只表达主题，类型 / 来源 / 状态交给 Properties，避免标签蔓延
 - **Obsidian Bases 数据库视图** — Books、Persons、Resources、Opensource、Subscriptions
 - **清晰的写作规范、命名规范和任务管理规则**
 
@@ -72,6 +73,7 @@
 | 信息该放哪里？| `00_System/Vault_Map.md` 给出明确路由规则 |
 | AI 怎么理解我？| `agent.md` + `01_Context/` 的稳定背景与当前重点 |
 | 怎么避免重复？| `.templates/` 提供统一模板，所有卡片/项目走同一个骨架 |
+| 标签越用越乱？| `Vault_Schema.md` 登记中文层级主题；类型、来源和状态不再重复打标签 |
 | 知识怎么沉淀？| 23 种原子化卡片 + 双向链接构成知识网络 |
 | 每天怎么推进？| 内置 `/today`、`/closeday`、`/weekly-review` 三个常用 AI 技能 |
 

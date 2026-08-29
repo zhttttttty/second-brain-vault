@@ -1,6 +1,7 @@
 ---
 description: 知识库变更日志 — 每次写入知识库都追加一条
-tags: [system]
+type: system
+tags: [知识管理/Obsidian]
 updated: 2026-08-29
 ---
 # CHANGELOG · 知识库变更日志
@@ -11,6 +12,7 @@ updated: 2026-08-29
 
 ## 2026-08-29
 
+- `规则优化` | 参考中文个人知识库标签框架，将标签收敛为 1～3 个中文层级主题；类型、来源、状态改由 Properties 表达，并同步模板、示例与 Skills | `00_System/Vault_Schema.md`、`04_Knowledge/00_Cards/.templates/`
 - `系统修复` | 对齐 Daily Note 与附件的 Obsidian 配置 | `.obsidian/daily-notes.json`、`.obsidian/app.json`
 - `规则修复` | 明确标签分类法适用范围，补充 `task` 形态标签与 CHANGELOG 记录边界 | `00_System/Vault_Schema.md`
 - `模板修复` | 23 种卡片模板与 Daily/Project 模板的占位 frontmatter 改为合法 YAML | `04_Knowledge/00_Cards/.templates/`

@@ -3,7 +3,7 @@ type: card
 card_type: opensource
 title: "{{项目名称}}"
 author: "{{GitHub 用户名或组织名}}"
-tags: [card, opensource, "{{分类/主题}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：从哪里了解到这个项目}}"
 url: "{{https://github.com/...}}"

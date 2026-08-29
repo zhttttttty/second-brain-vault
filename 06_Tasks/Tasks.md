@@ -1,8 +1,8 @@
 ---
 title: Tasks
 description: 不属于具体项目的长期任务
-tags:
-  - task
+type: task
+tags: []
 ---
 
 # Tasks

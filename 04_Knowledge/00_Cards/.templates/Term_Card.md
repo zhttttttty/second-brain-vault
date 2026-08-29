@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: term
-tags: [card, term, "{{领域}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：哪本书/哪篇文章/哪个课程}}"
 related: []

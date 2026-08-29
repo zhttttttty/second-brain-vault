@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: atomic-habit
-tags: [card, atomic-habit, "{{标签1}}", "{{标签2}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 start_date: "{{YYYY-MM-DD}}"
 streak_days: 0

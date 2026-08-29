@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: question
-tags: [card, question, "{{topic}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己提出/看到他人提出}}"
 related: []

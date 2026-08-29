@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: paradox
-tags: [card, paradox, "{{topic}}"]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源}}"
 related: []

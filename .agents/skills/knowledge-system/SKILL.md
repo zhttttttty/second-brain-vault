@@ -76,7 +76,7 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 提炼出的模型落成 `model` 卡片，强制 4 要素：
 
 - **序号**：卡片内知识点编号 `[1][2][3]`，独立可修剪
-- **关键词**：frontmatter `tags` + 正文标粗
+- **关键词**：稳定主题放 frontmatter `tags`，具体关键词在正文标粗
 - **出处**：frontmatter `source` 字段（URL 或来源名）
 - **思考**：正文「我的思考」章节
 
@@ -84,7 +84,7 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 
 额外的质量约定：
 
-- `tags` 必须来自 `00_System/Vault_Schema.md` 的标签分类法，领域标签先登记再用，防止标签蔓延
+- `tags` 只放 `00_System/Vault_Schema.md` 已登记的 1～3 个稳定主题；类型、来源、状态和一次性关键词不用标签表达
 - 证据充分程度用 `confidence`（high/medium/low）标注；有未解决矛盾设 `contested: true` 并填 `contradictions`
 - 综合 3+ 来源的卡片，在段落末尾用 `^[来源]` 逐段溯源，让读者不必重读原文就能追溯每条主张
 

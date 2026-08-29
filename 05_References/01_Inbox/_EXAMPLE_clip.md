@@ -1,12 +1,11 @@
 ---
 title: "How to Take Smart Notes（示例剪藏）"
+type: reference
 author: "Example Author"
 source: "https://example.com/how-to-take-smart-notes"
 published:
 clipped: 2025-01-01
-tags:
-  - reference
-  - example
+tags: [知识管理/做笔记]
 ---
 
 # How to Take Smart Notes（示例剪藏）

@@ -1,8 +1,7 @@
 ---
 type: daily
 date: "{{date:YYYY-MM-DD}}"
-tags:
-  - daily
+tags: []
 ---
 
 # {{date:YYYY-MM-DD}}

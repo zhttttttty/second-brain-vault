@@ -1,6 +1,7 @@
 ---
 description: Rules for managing tasks across Inbox, Tasks, Projects, and Daily Notes
-tags: [system, task, gtd]
+type: system
+tags: [知识管理/方法论]
 created: 2026-04-11
 updated: 2026-07-21
 ---

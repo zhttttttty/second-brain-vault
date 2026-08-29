@@ -1,7 +1,7 @@
 ---
 updated: "{{YYYY-MM-DD}}"
-tags:
-  - context
+type: context
+tags: []
 ---
 
 # About Me

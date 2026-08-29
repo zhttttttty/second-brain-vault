@@ -1,7 +1,7 @@
 ---
 type: card
 card_type: quote
-tags: [card, quote]
+tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源/作者/作品}}"
 related: []
