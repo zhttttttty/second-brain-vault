@@ -45,7 +45,7 @@
 
 ### 3. 规则、上下文与内容解耦
 
-- `agent.md`：AI 协作规则的单一来源
+- `AGENTS.md`：AI 协作规则的单一来源
 - `Context/`：个人背景、偏好和当前 1～3 个月重点
 - `System/`：Schema、命名、写作、任务与工作流规则
 - 内容目录：只保存实际工作和知识资产
@@ -77,8 +77,7 @@ second-brain-vault/
 ├── .agents/skills/                 # Vault 工作流 Skills
 ├── .claude/skills                  # 指向 .agents/skills 的兼容入口
 ├── .obsidian/                      # Obsidian 配置
-├── agent.md                        # AI 协作规则单一来源
-└── AGENTS.md                       # 指向 agent.md 的兼容入口
+└── AGENTS.md                       # AI 协作规则与自动发现入口
 ```
 
 更完整的文件级导航见 [`System/Vault_Map.md`](System/Vault_Map.md)。
@@ -125,7 +124,7 @@ second-brain-vault/
 4. **初始化模板**：让兼容的 Agent 执行 `onboard`，按需清理 `_EXAMPLE_*` 示例并完成首次检查。
 5. **开始工作**：创建当天 Daily Note，或从 `today`、`capture-web`、`digest`、`card-creator` 中选择一个真实流程。
 
-完整说明见 [`QUICK_START.md`](QUICK_START.md)。首次接入 AI 工具时，请先确认它能读取 `agent.md`/`AGENTS.md`，并支持所需的 Skills 协议。
+完整说明见 [`QUICK_START.md`](QUICK_START.md)。首次接入 AI 工具时，请先确认它能读取 `AGENTS.md`，并支持所需的 Skills 协议。
 
 ## 模板、视图与 Canvas
 
@@ -170,13 +169,13 @@ Vault 内置的 18 个 Skills 按工作阶段分组如下：
 
 本库以 `.agents/skills/` 作为跨 Agent 的技能源，并通过兼容入口适配特定工具。外部通用 Obsidian Skills 不复制进 Vault，以避免与仓库自身工作流混在一起；推荐参考 [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)。
 
-> Windows 若未启用开发者模式或没有创建符号链接的权限，Git 可能无法正确还原 `AGENTS.md` 和 `.claude/skills`。遇到问题时请参考兼容文档，或使用实体入口文件。
+> `AGENTS.md` 是普通文件，不依赖符号链接。Windows 若未启用开发者模式或没有创建符号链接的权限，Git 可能无法正确还原 `.claude/skills`；遇到问题时请参考兼容文档或使用实体目录副本。
 
 ## 系统规则与质量控制
 
 | 文件 | 作用 |
 | --- | --- |
-| `agent.md` | AI 角色、导航、读取顺序与写回边界 |
+| `AGENTS.md` | AI 角色、导航、读取顺序与写回边界 |
 | `System/Vault_Schema.md` | 文件夹、标签、属性、链接、质量信号与建卡门槛 |
 | `System/Vault_Map.md` | 当前目录和关键文件地图 |
 | `System/Writing_Rules.md` | 默认写作要求 |
@@ -199,8 +198,8 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault . --strict
 如需将旧版编号目录迁移到当前结构，可先预览再执行：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/migrate_vault_layout.ps1 -VaultPath "D:\YourVault"
-powershell -ExecutionPolicy Bypass -File scripts/migrate_vault_layout.ps1 -VaultPath "D:\YourVault" -Apply
+powershell -ExecutionPolicy Bypass -File .agents/scripts/migrate-vault-layout.ps1 -Vault "D:\YourVault"
+powershell -ExecutionPolicy Bypass -File .agents/scripts/migrate-vault-layout.ps1 -Vault "D:\YourVault" -Apply
 ```
 
 脚本会改写已知路径引用；执行前仍应备份，并在执行后运行严格校验。

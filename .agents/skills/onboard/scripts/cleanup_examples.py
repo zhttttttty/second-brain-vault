@@ -26,7 +26,7 @@ PROJECT_EXAMPLE = Path("02_Projects/_Example_Project")
 
 
 def ensure_vault_root(root: Path) -> None:
-    required = (root / "agent.md", root / "Templates/Cards")
+    required = (root / "AGENTS.md", root / "Templates/Cards")
     if not all(path.exists() for path in required):
         raise SystemExit("Error: run this helper from the Vault root directory.")
 

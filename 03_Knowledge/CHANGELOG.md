@@ -12,6 +12,7 @@ updated: 2026-08-30
 
 ## 2026-08-30
 
+- `入口收敛` | 将 AI 规则入口收敛为单一实体 `AGENTS.md`，移除小写源文件与根目录符号链接，并同步 Skills、脚本、README、快速开始、兼容说明和严格校验 | `AGENTS.md`、`System/Agent_Skills_Compatibility.md`、`.agents/skills/system-sync/`
 - `文档重构` | README 改为以当前库内容为准的使用说明，统一架构、工作流、18 个 Skills、23 种模板、兼容性、校验与隐私边界，移除版本堆叠和过时工具推荐 | `README.md`
 - `架构迁移` | 将编号目录收敛为 `01_Daily` 至 `06_Archive` 的内容生命周期；`Context`、`System`、`Bases`、`Templates` 改为无编号支撑层，并同步 Agent、Skills、Obsidian 配置、Base、Canvas、脚本和说明文档 | `agent.md`、`System/Vault_Map.md`、`.agents/scripts/migrate-vault-layout.ps1`
 - `模板集中` | Daily、Project 与 23 种 Cards 模板迁入根目录 `Templates`，作为唯一模板源；移除各内容目录中的分散 `.templates` | `Templates/`、`.obsidian/templates.json`、`.obsidian/daily-notes.json`

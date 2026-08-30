@@ -29,6 +29,7 @@ updated: 2026-08-30
 
 ## 多 Agent 安装原则
 
+- 根目录 `AGENTS.md` 是项目规则的唯一实体文件，也是 Codex 的自动发现入口；不再保留小写副本或符号链接。不能自动识别该名称的 Agent，应在首次接入时显式读取此文件。
 - 各 Agent 的技能安装目录和发现协议不同，按上游仓库针对该 Agent 的说明安装。
 - 支持 Agent Skills 规范的工具可从 `npx skills add https://github.com/kepano/obsidian-skills` 开始，并在交互中选择目标 Agent；不要默认写入某个未经确认的用户目录。
 - Codex 的全局技能通常位于用户级 skills 目录，不会随着 Vault 的 Git 仓库分发。

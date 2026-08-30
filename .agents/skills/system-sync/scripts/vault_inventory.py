@@ -64,7 +64,6 @@ def main() -> None:
         "vault": str(root),
         "git_repository": (root / ".git").exists(),
         "entrypoints": {
-            "agent.md": (root / "agent.md").exists(),
             "AGENTS.md": (root / "AGENTS.md").exists(),
             "CLAUDE.md": (root / "CLAUDE.md").exists(),
         },

@@ -19,8 +19,8 @@ $root = [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $Vault).Path).T
 )
 $rootPrefix = $root + [System.IO.Path]::DirectorySeparatorChar
 
-if (-not (Test-Path -LiteralPath (Join-Path $root "agent.md") -PathType Leaf)) {
-    throw "Vault root verification failed: agent.md is missing under $root"
+if (-not (Test-Path -LiteralPath (Join-Path $root "AGENTS.md") -PathType Leaf)) {
+    throw "Vault root verification failed: AGENTS.md is missing under $root"
 }
 
 function Resolve-WithinVault {

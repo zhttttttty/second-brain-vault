@@ -147,4 +147,4 @@ contradictions: [other-card-slug]
 
 - **全库索引**：主题地图 `03_Knowledge/01_Topics/` + MOC 卡片
 - **变更日志**：`03_Knowledge/CHANGELOG.md` — 记录新增/更新/归档知识，以及影响全库行为的系统规则变更；普通 Daily 与任务勾选不逐条记录
-- **会话定向**：新会话先读本文件 → 索引/主题地图 → 最近变更日志（见 `agent.md`）
+- **会话定向**：新会话先读本文件 → 索引/主题地图 → 最近变更日志（见 `AGENTS.md`）

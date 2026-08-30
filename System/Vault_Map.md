@@ -30,7 +30,7 @@ tags: [知识管理/Obsidian]
 - `.agents/scripts/migrate-vault-layout.ps1` — 将旧编号结构安全迁移到当前布局；默认 Dry Run，`-Apply` 后执行
 - `.github/workflows/validate-vault.yml` — 在 push / pull request 时运行同一套确定性校验
 
-AI 的协作流程和写回原则统一维护在根目录 `agent.md`，不在这里重复维护。
+AI 的协作流程和写回原则统一维护在根目录 `AGENTS.md`，不在这里重复维护。
 
 ### 附件管理
 - 所有附件存放到对应目录下的 `Attachments/` 文件夹

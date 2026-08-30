@@ -1,6 +1,6 @@
 ---
 name: system-sync
-description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中，并运行确定性结构校验。适用于更新 `System/Vault_Map.md`、`agent.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README、Base、Canvas、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / agent / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
+description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中，并运行确定性结构校验。适用于更新 `System/Vault_Map.md`、`AGENTS.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README、Base、Canvas、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / AGENTS / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
 ---
 
 # System Sync: 系统信息同步器
@@ -31,8 +31,7 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 
 当前系统文件重点：
 
-- `AGENTS.md` — 指向 `agent.md` 的符号链接，是 AI 入口说明
-- `agent.md` — 总导航和 AI 协作规则
+- `AGENTS.md` — 总导航、AI 协作规则与自动发现入口的单一来源
 - `System/Vault_Map.md` — Vault 结构地图
 - `System/Writing_Rules.md` — 写作与附件规则
 - `System/Naming_Conventions.md` — 命名规则
@@ -105,10 +104,10 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 推荐落点：
 
 - 全局结构、目录职责、系统文件清单 → `System/Vault_Map.md`
-- AI 读写与协作原则 → `agent.md`
+- AI 读写与协作原则 → `AGENTS.md`
 - 写作、附件、frontmatter 规则 → `System/Writing_Rules.md`
 - 命名规则 → `System/Naming_Conventions.md`
-- 总入口和协作规则 → `agent.md`
+- 总入口和协作规则 → `AGENTS.md`
 - 面向使用者的项目介绍 → `README.md`
 - 目录内部说明 → 对应目录下的 `README.md`
 - 本地技能总览 → `Skills_Manual.md`
@@ -171,7 +170,6 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 先读取：
 
 - `AGENTS.md`
-- `agent.md`
 - `System/Vault_Map.md`
 - `System/Writing_Rules.md`
 - `System/Naming_Conventions.md`
@@ -202,7 +200,7 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 - **Base / Canvas 统计**：`Bases/` 下的 Base 文件或全库 Canvas 是否变化
 - **MOC 同步**：新增卡片是否需要加入相关 MOC
 - **附件迁移**：附件目录规则或附件数量是否变化
-- **总入口**：`agent.md` 是否需要新增重要入口或规则
+- **总入口**：`AGENTS.md` 是否需要新增重要入口或规则
 
 不要因为某个文件存在就一定更新。只有信息缺失、过期、冲突或用户明确要求时才改。
 
@@ -227,7 +225,7 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 
 不要把频繁波动的详细统计塞进 `Vault_Map.md`，除非用户明确要求或该统计是说明当前结构所必需。
 
-#### `agent.md`
+#### `AGENTS.md`
 
 适合更新：
 
@@ -330,11 +328,11 @@ MOC 不更新条件：
 python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 ```
 
-脚本检查 Frontmatter YAML、`tags` / `related` 类型、未登记标签、卡片模板映射、Base Schema 与模板属性、JSON Canvas 引用、说明文档计数、技能手册章节，以及 `AGENTS.md` / `.claude/skills` 兼容入口。
+脚本检查 Frontmatter YAML、`tags` / `related` 类型、未登记标签、卡片模板映射、Base Schema 与模板属性、JSON Canvas 引用、说明文档计数、技能手册章节、单一 `AGENTS.md` 规则入口，以及 `.claude/skills` 兼容入口。
 
 - 缺少 PyYAML 时，提示用户运行 `python -m pip install -r requirements-dev.txt`，不要把依赖缺失误报成 Vault 内容错误。
 - 脚本失败时保留具体错误，不要用语言模型目测结果覆盖确定性错误。
-- Windows 软链被检出为普通占位文件时，报告兼容性问题，不自动删除或覆盖用户文件。
+- Windows 下 `.claude/skills` 软链被检出为普通占位文件时，报告兼容性问题，不自动删除或覆盖用户文件。
 
 ### Step 7: 输出同步报告
 
@@ -378,7 +376,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 - `System/Writing_Rules.md`
 - `System/Naming_Conventions.md`
 - `System/Task_Management_Rules.md`
-- `agent.md`
+- `AGENTS.md`
 - `README.md`
 - 各目录 `README.md`
 - `Skills_Manual.md`

@@ -100,7 +100,7 @@ description: >-
 > 根据今日更新，判断是否有需要沉淀到 `System/` 的规则或流程
 
 - **建议写回**：{{建议写回的规则/流程/规范}}
-- **建议位置**：{{例如 agent.md / Writing_Rules.md / Naming_Conventions.md}}
+- **建议位置**：{{例如 AGENTS.md / Writing_Rules.md / Naming_Conventions.md}}
 - **理由**：{{为什么这不是一次性记录，而是长期可复用规则}}
 
 如果没有：

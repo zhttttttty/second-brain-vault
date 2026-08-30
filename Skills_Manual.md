@@ -709,12 +709,11 @@ AI 负责：
 - 新增、删除或修改技能后。
 - 新增卡片类型、模板或目录后。
 - 批量迁移内容后。
-- 想更新 `Vault_Map.md`、`README.md`、`agent.md` 或 `Skills_Manual.md`。
+- 想更新 `Vault_Map.md`、`README.md`、`AGENTS.md` 或 `Skills_Manual.md`。
 
 主要读取：
 
 - `AGENTS.md`
-- `agent.md`
 - `System/Vault_Map.md`
 - `System/Task_Management_Rules.md`
 - `System/Writing_Rules.md`
@@ -738,7 +737,7 @@ AI 负责：
 - `System/Vault_Map.md`
 - `System/Writing_Rules.md`
 - `System/Naming_Conventions.md`
-- `agent.md`
+- `AGENTS.md`
 - `README.md`
 - 目录级 `README.md`
 - `Skills_Manual.md`

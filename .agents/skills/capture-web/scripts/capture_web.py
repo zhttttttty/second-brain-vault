@@ -86,7 +86,7 @@ def main() -> None:
 
     root = Path(args.vault).resolve()
     inbox = root / "04_References" / "01_Inbox"
-    if not (root / "agent.md").is_file() or not inbox.is_dir():
+    if not (root / "AGENTS.md").is_file() or not inbox.is_dir():
         raise SystemExit("Error: --vault must point to this Vault root")
 
     command = shutil.which("defuddle")

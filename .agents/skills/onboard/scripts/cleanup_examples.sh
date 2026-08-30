@@ -100,7 +100,7 @@ for arg in "$@"; do
   esac
 done
 
-if [[ ! -f "agent.md" || ! -d "Templates/Cards" ]]; then
+if [[ ! -f "AGENTS.md" || ! -d "Templates/Cards" ]]; then
   echo "Error: run this helper from the Vault root directory." >&2
   exit 1
 fi

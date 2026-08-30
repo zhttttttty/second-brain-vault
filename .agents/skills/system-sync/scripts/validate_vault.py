@@ -66,29 +66,16 @@ def registered_tags(root: Path) -> set[str]:
 
 
 def check_entrypoints(root: Path, errors: list[str], warnings: list[str]) -> None:
-    agent = root / "agent.md"
     agents = root / "AGENTS.md"
     claude_skills = root / ".claude" / "skills"
     canonical_skills = root / ".agents" / "skills"
 
-    if not agent.is_file():
-        errors.append("agent.md is missing")
-
     if not agents.exists() and not agents.is_symlink():
         errors.append("AGENTS.md is missing")
     elif agents.is_symlink():
-        if not agents.resolve().is_file():
-            errors.append("AGENTS.md is a broken symbolic link")
-    elif agents.is_file():
-        content = agents.read_text(encoding="utf-8-sig").strip()
-        if content == "agent.md":
-            errors.append(
-                "AGENTS.md was checked out as a symlink stub; enable Git symlinks and clone again"
-            )
-        elif agent.is_file() and agents.read_bytes() != agent.read_bytes():
-            warnings.append("AGENTS.md is a regular fallback copy and has drifted from agent.md")
-        else:
-            warnings.append("AGENTS.md is a regular fallback copy; keep it synchronized with agent.md")
+        errors.append("AGENTS.md must be the canonical regular file, not a symbolic link")
+    elif not agents.is_file():
+        errors.append("AGENTS.md is not a regular file")
 
     if not claude_skills.exists() and not claude_skills.is_symlink():
         errors.append(".claude/skills is missing")
@@ -491,7 +478,7 @@ def main() -> None:
     args = parser.parse_args()
 
     root = Path(args.vault).resolve()
-    required = (root / "agent.md", root / "System" / "Vault_Schema.md")
+    required = (root / "AGENTS.md", root / "System" / "Vault_Schema.md")
     if not all(path.exists() for path in required):
         raise SystemExit("Error: --vault must point to the Vault root")
 
