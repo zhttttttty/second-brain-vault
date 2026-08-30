@@ -2,6 +2,7 @@
 title: Projects Directory
 description: 项目管理 — 每个项目一个目录
 created: 2026-04-23
+updated: 2026-08-30
 type: system
 tags: [知识管理/Obsidian]
 ---
@@ -69,5 +70,5 @@ tags: [知识管理/Obsidian]
 ## 相关文档
 
 - [[../System/Vault_Map|Vault Map]] — 整体仓库结构
-- [[../03_Knowledge|Knowledge]] — 知识沉淀
-- [[../04_References|References]] — 剪藏文章
+- [[../03_Knowledge/README|Knowledge]] — 知识沉淀
+- [[../04_References/README|References]] — 剪藏文章

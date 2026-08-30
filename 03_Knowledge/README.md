@@ -2,7 +2,7 @@
 title: Knowledge Directory
 description: 长期知识卡片与主题地图
 created: 2026-04-23
-updated: 2026-07-22
+updated: 2026-08-30
 type: system
 tags: [知识管理/Obsidian]
 ---
@@ -16,6 +16,7 @@ tags: [知识管理/Obsidian]
 03_Knowledge/
 ├── 00_Cards/      # 原子化知识卡片
 ├── 01_Topics/     # 长期主题地图
+├── CHANGELOG.md   # 知识系统演化记录
 └── README.md
 ```
 

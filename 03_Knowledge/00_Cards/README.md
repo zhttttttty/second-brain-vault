@@ -2,6 +2,7 @@
 title: Knowledge Cards
 description: Standardized cards for atomic knowledge, entities, resources, and navigation
 type: system
+updated: 2026-08-30
 tags: [知识管理/做笔记]
 ---
 
