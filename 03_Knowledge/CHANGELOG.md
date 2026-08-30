@@ -12,6 +12,7 @@ updated: 2026-08-30
 
 ## 2026-08-30
 
+- `文档重构` | README 改为以当前库内容为准的使用说明，统一架构、工作流、18 个 Skills、23 种模板、兼容性、校验与隐私边界，移除版本堆叠和过时工具推荐 | `README.md`
 - `架构迁移` | 将编号目录收敛为 `01_Daily` 至 `06_Archive` 的内容生命周期；`Context`、`System`、`Bases`、`Templates` 改为无编号支撑层，并同步 Agent、Skills、Obsidian 配置、Base、Canvas、脚本和说明文档 | `agent.md`、`System/Vault_Map.md`、`.agents/scripts/migrate-vault-layout.ps1`
 - `模板集中` | Daily、Project 与 23 种 Cards 模板迁入根目录 `Templates`，作为唯一模板源；移除各内容目录中的分散 `.templates` | `Templates/`、`.obsidian/templates.json`、`.obsidian/daily-notes.json`
 - `平台层增强` | 接入 kepano/obsidian-skills 的分层约定，固定上游提交并明确多 Agent、Claude 兼容入口与 Obsidian CLI 安全边界 | `.agents/upstream-skills.yaml`、`00_System/Agent_Skills_Compatibility.md`
