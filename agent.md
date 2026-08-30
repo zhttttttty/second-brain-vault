@@ -1,7 +1,7 @@
 ---
 description: System configuration for AI assistants working with this vault
-version: 1.1.0
-last_updated: 2026-08-29
+version: 1.2.0
+last_updated: 2026-08-30
 ---
 # agent.md
 
@@ -29,7 +29,7 @@ last_updated: 2026-08-29
 
 ## 我的主要工作主题
 
-> 尚未设置。请先填写 `01_Context/About_Me.md` 和 `01_Context/Current_Priorities.md`。
+> 尚未设置。请先填写 `Context/About_Me.md` 和 `Context/Current_Priorities.md`。
 
 当用户创建或更新个人上下文时，读取这两个文件，并同步更新本节：
 
@@ -47,14 +47,18 @@ last_updated: 2026-08-29
 
 在动手之前，先定向自己，避免重复建卡、违反约定、重复已做工作：
 
-1. 读 `00_System/Vault_Schema.md` — 领域范围、标签分类法、建卡门槛、质量信号
-2. 读相关主题地图（`04_Knowledge/01_Topics/`）或 MOC — 已有内容的索引
-3. 读最近 `04_Knowledge/CHANGELOG.md` — 最近改了什么
+1. 读 `System/Vault_Schema.md` — 领域范围、标签分类法、建卡门槛、质量信号
+2. 读相关主题地图（`03_Knowledge/01_Topics/`）或 MOC — 已有内容的索引
+3. 读最近 `03_Knowledge/CHANGELOG.md` — 最近改了什么
 
 ### 根目录
 - `agent.md` 是总导航文件。执行复杂任务前优先阅读。
 
-### `00_System/`
+目录分为两层：
+- 编号目录 `01_Daily/` 至 `06_Archive/` 是用户日常浏览和流转的工作内容
+- 无编号目录 `Context/`、`System/`、`Bases/`、`Templates/`、`Attachments/` 是支撑层，不参与内容流转排序
+
+### `System/`
 这里存放系统级规则。
 优先查看：
 - `Vault_Schema.md`：领域范围、标签分类法、建卡门槛、质量信号
@@ -64,52 +68,63 @@ last_updated: 2026-08-29
 - `Naming_Conventions.md`：命名规范
 - `Task_Management_Rules.md`：任务流转与写回边界
 
-### `01_Context/`
+### `Context/`
 这里存放长期稳定背景与当前动态重点。
 当任务涉及“我是谁、我在做什么、长期方向、受众、表达风格或当前优先级”时，优先读取这里。
 重点文件：
 - `About_Me.md` — 稳定背景与协作偏好
 - `Current_Priorities.md` — 当前 1～3 个月的重点
 
-### `02_Daily/`
+### `01_Daily/`
 这里存放每日记录。
 当任务涉及最近一周做了什么、讨论了什么、最近决定了什么时，优先查看最近的 Daily Note。
 
-### `03_Projects/`
+### `02_Projects/`
 这里存放具体项目。
 当任务与某个项目有关时，优先读取对应目录下的 `Project.md`。该文件集中保存项目定义、完成标准、当前状态、下一步、Backlog、里程碑、进展和决策。项目产出按需放入 `Outputs/`。
 
-### `04_Knowledge/`
+### `03_Knowledge/`
 这里存放长期知识沉淀。
 当任务涉及概念梳理、方法论整合、背景分析、框架比较时，优先读取这里。
-- `00_Cards/.templates/` — 卡片模板
+- `Templates/Cards/` — 卡片模板
 - `01_Topics/` — 长期关注领域的知识地图与阶段性理解
 
 - 单个概念、观点、模型 → `00_Cards/`
 - 长期领域的综合理解与知识连接 → `01_Topics/`
-- 有目标、期限或完成标准的学习 → `03_Projects/`
+- 有目标、期限或完成标准的学习 → `02_Projects/`
 - 人可执行的方法 → `model` / `mentalmodel` 或 `checklist` 卡片
 - AI 可执行的完整流程 → `.agents/skills/`
 
-当任务涉及「搭建知识体系、从内容提炼模型、判断知识价值」时，优先使用 `.agents/skills/knowledge-system/` 技能（六步法），并参考 `00_System/Knowledge_Workflow.md` 的方法论落点映射。
+当任务涉及「搭建知识体系、从内容提炼模型、判断知识价值」时，优先使用 `.agents/skills/knowledge-system/` 技能（六步法），并参考 `System/Knowledge_Workflow.md` 的方法论落点映射。
 
-### `05_References/`
+### `04_References/`
 这里存放外部剪藏：
 - `01_Inbox/`：尚未判断或消化的内容
 - `02_Library/`：已消化且原文本身值得长期保留的精选文章
 
 消化结果应进入知识卡片、项目或任务；原文只有在具有长期引用价值时才进入 Library。主题使用标签和链接组织，不新增分类目录。
 
-### `06_Tasks/`
+### `05_Tasks/`
 这里存放任务入口和非项目任务：
 - `Inbox.md`：尚未分类的新任务
 - `Tasks.md`：不属于具体项目、需要持续跟踪的任务
 
 项目任务保留在项目 `Project.md`；Daily Note 只记录当天的选择和执行结果。任务规划时同时读取 `Tasks.md`、相关项目和最近的 Daily Note。
 
-### `20_Archive/`（可选）
-如果用户添加了 `20_Archive/` 目录，这里存放归档资料。
+### `06_Archive/`
+这里存放已经退出活跃工作流、但仍需保留的历史内容。
 除非用户明确要求历史信息，否则不要优先读取这里。
+
+### `Templates/`
+这里是模板的单一来源：
+- `Daily_Note.md` — Daily Note 模板
+- `Project.md` — 单页项目模板
+- `Cards/` — 23 种卡片模板
+
+模板不是正式内容。创建笔记时复制并完整替换占位符，不要直接把模板当成卡片、项目或日记。
+
+### `Bases/`
+这里存放基于 Properties 的 Obsidian 数据库视图。Base 只是视图，Markdown 与 Properties 才是事实来源。
 
 ---
 
@@ -148,11 +163,11 @@ last_updated: 2026-08-29
 
 写回时请遵循：
 - 项目决策与下一步动作 → 写入项目下的 `Project.md`
-- 最近动态 → 写入当日 `02_Daily/日期.md`
-- 长期规则 → 写入 `00_System/Writing_Rules.md` 或对应规则文件
-- 长期知识 → 写入 `04_Knowledge/` 对应主题文件
-- 尚未分类的新任务 → 写入 `06_Tasks/Inbox.md`
-- 非项目任务 → 写入 `06_Tasks/Tasks.md`
+- 最近动态 → 写入当日 `01_Daily/日期.md`
+- 长期规则 → 写入 `System/Writing_Rules.md` 或对应规则文件
+- 长期知识 → 写入 `03_Knowledge/` 对应主题文件
+- 尚未分类的新任务 → 写入 `05_Tasks/Inbox.md`
+- 非项目任务 → 写入 `05_Tasks/Tasks.md`
 
 请避免把未经整理的聊天原文直接写进正式知识库。
 优先写成结构化条目。
@@ -171,7 +186,7 @@ last_updated: 2026-08-29
 - 适合知识型、课程型、方法论型输出
 
 具体规则请查看：
-- `00_System/Writing_Rules.md`
+- `System/Writing_Rules.md`
 
 ---
 
@@ -184,14 +199,14 @@ last_updated: 2026-08-29
 - 优先延续现有结构，而不是另开平行结构
 
 具体规则请查看：
-- `00_System/Naming_Conventions.md`
+- `System/Naming_Conventions.md`
 
 ---
 
 ## 遇到不确定时
 
 当你不确定信息该放哪里：
-1. 先查看 `00_System/Vault_Map.md`
+1. 先查看 `System/Vault_Map.md`
 2. 再查看相邻目录已有文件
 3. 选择最接近现有结构的落点
 4. 若仍不确定，先提出建议而不是乱写

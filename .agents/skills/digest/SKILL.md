@@ -28,11 +28,17 @@ analysis, comparison, formatting, linking, and routing directly.
 
 ### 1. Select one clipping
 
+If the user supplies a webpage URL rather than an Inbox file, use
+`capture-web` first. Preview the extracted Markdown, obtain confirmation for
+the separate write, and only then continue with the exact file created under
+`04_References/01_Inbox/`. Do not treat an unextracted URL as readable source
+content.
+
 If the user supplies a file, verify that it exists and read it.
 
 If the user invokes `$digest` without a file:
 
-1. List Markdown files directly under `05_References/01_Inbox/`.
+1. List Markdown files directly under `04_References/01_Inbox/`.
 2. If none exist, explain that Inbox is empty and ask the user to clip an
    article there first.
 3. If one exists, identify it and continue.
@@ -49,15 +55,16 @@ known.
 Read:
 
 - the selected clipping in full;
-- `05_References/README.md`;
-- `01_Context/Current_Priorities.md` when populated.
+- `04_References/README.md`;
+- `Context/Current_Priorities.md` when populated.
 
 Record only metadata present in the clipping or verified source, such as title,
 author, source URL, publication date, clip date, and tags.
 
 If the source is incomplete, empty, or only contains a URL, state what is
-missing and ask the user for the article content or a complete clipping. Treat
-unavailable material as unread.
+missing. When it contains a public webpage URL, offer to run `capture-web` and
+return to this step after the user confirms the captured file; otherwise ask
+for complete content. Treat unavailable material as unread.
 
 **Completion:** The source has been read in full, available metadata recorded,
 and applicable reference context loaded.
@@ -132,7 +139,7 @@ knowledge and action outcome. No source disposition is implied by this approval.
 ### 6. Create only approved outcomes
 
 After approval, read the applicable routing, naming, and writing rules under
-`00_System/`, then route each outcome to its single authoritative location.
+`System/`, then route each outcome to its single authoritative location.
 Create no artifact when the approved decision is that the source has no durable
 value.
 
@@ -140,7 +147,7 @@ When creating cards:
 
 1. Enforce one concept or claim per card.
 2. Read the matching template under
-   `04_Knowledge/00_Cards/.templates/`.
+   `Templates/Cards/`.
 3. Preserve the source URL or clipping reference in `source`.
 4. Search existing cards before creating a duplicate.
 5. Add only meaningful links; do not link merely to reduce isolation.
@@ -159,7 +166,7 @@ checked for duplicate formal tasks or cards.
 
 After approved outputs are complete, revisit the original source.
 
-Recommend `05_References/02_Library/` only when the original itself has lasting
+Recommend `04_References/02_Library/` only when the original itself has lasting
 reference value, such as:
 
 - complete reasoning that a summary cannot replace;

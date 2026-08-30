@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id":"11a0c9f5e7d3b821","type":"text","x":0,"y":0,"width":320,"height":150,"text":"# Vault 架构\n规则、上下文、工作流与知识内容分层。\n\n此 Canvas 仅作导航，Markdown 是唯一事实来源。"},
+    {"id":"22b1d8e6f4c2a930","type":"file","x":420,"y":-260,"width":360,"height":240,"file":"System/Vault_Schema.md"},
+    {"id":"33c2e7f5a1b40968","type":"file","x":420,"y":40,"width":360,"height":240,"file":"Context/About_Me.md"},
+    {"id":"44d3f6a4b0c51879","type":"file","x":420,"y":340,"width":360,"height":240,"file":"Context/Current_Priorities.md"},
+    {"id":"55e4a5b3c9d62780","type":"file","x":900,"y":-260,"width":380,"height":240,"file":"System/Vault_Map.md"},
+    {"id":"66f5b4c2d8e73691","type":"file","x":900,"y":40,"width":380,"height":240,"file":"System/Agent_Skills_Compatibility.md"},
+    {"id":"77a6c3d1e7f84502","type":"file","x":900,"y":340,"width":380,"height":240,"file":"03_Knowledge/CHANGELOG.md"}
+  ],
+  "edges": [
+    {"id":"a1b2c3d4e5f60718","fromNode":"11a0c9f5e7d3b821","fromSide":"right","toNode":"22b1d8e6f4c2a930","toSide":"left","toEnd":"arrow","label":"规则"},
+    {"id":"b2c3d4e5f6071829","fromNode":"11a0c9f5e7d3b821","fromSide":"right","toNode":"33c2e7f5a1b40968","toSide":"left","toEnd":"arrow","label":"稳定背景"},
+    {"id":"c3d4e5f60718293a","fromNode":"11a0c9f5e7d3b821","fromSide":"right","toNode":"44d3f6a4b0c51879","toSide":"left","toEnd":"arrow","label":"当前重点"},
+    {"id":"d4e5f60718293a4b","fromNode":"22b1d8e6f4c2a930","fromSide":"right","toNode":"55e4a5b3c9d62780","toSide":"left","toEnd":"arrow","label":"路由"},
+    {"id":"e5f60718293a4b5c","fromNode":"33c2e7f5a1b40968","fromSide":"right","toNode":"66f5b4c2d8e73691","toSide":"left","toEnd":"arrow","label":"协作"},
+    {"id":"f60718293a4b5c6d","fromNode":"44d3f6a4b0c51879","fromSide":"right","toNode":"77a6c3d1e7f84502","toSide":"left","toEnd":"arrow","label":"写回留痕"}
+  ]
+}

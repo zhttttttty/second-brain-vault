@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 
-CARD_DIR = Path("04_Knowledge/00_Cards")
+CARD_DIR = Path("03_Knowledge/00_Cards")
 RATING_VALUES = {"again", "hard", "good", "easy"}
 PRIORITY_RANK = {"core": 0, "normal": 1, "low": 2}
 

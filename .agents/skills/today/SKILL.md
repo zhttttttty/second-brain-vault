@@ -32,20 +32,20 @@ description: >-
 首先读取这些文件来理解当前状态：
 
 1. **AGENTS.md** — 理解仓库结构和导航规则
-2. **01_Context/Current_Priorities.md** — 获取当前优先级方向
-3. **01_Context/About_Me.md** — 了解工作方式偏好（如果存在）
-4. **00_System/Task_Management_Rules.md** — 理解任务管理规则（如果存在）
+2. **Context/Current_Priorities.md** — 获取当前优先级方向
+3. **Context/About_Me.md** — 了解工作方式偏好（如果存在）
+4. **System/Task_Management_Rules.md** — 理解任务管理规则（如果存在）
 
 ### Step 2: 读取任务管理文件
 
-1. **06_Tasks/Tasks.md** — 获取非项目的“下一步”和“等待”
-2. **06_Tasks/Inbox.md** — 只识别尚未分类、需要处理的任务
+1. **05_Tasks/Tasks.md** — 获取非项目的“下一步”和“等待”
+2. **05_Tasks/Inbox.md** — 只识别尚未分类、需要处理的任务
 
 > Inbox 不是候选任务清单。不要在任务尚未归位前直接把它选为今日重点；先判断应进入 Tasks 还是项目。
 
 ### Step 3: 读取今日 Daily Note
 
-检查 `02_Daily/YYYY-MM-DD.md`（今天的日期）
+检查 `01_Daily/YYYY-MM-DD.md`（今天的日期）
 
 如果不存在，说明今日尚未创建 Daily Note。
 
@@ -58,13 +58,13 @@ description: >-
 先识别活跃项目，再读取项目正式任务源：
 
 - 以各项目 `Project.md` 中的“下一步”和 `Backlog` 为正式任务源
-- `20_Archive/Project_Migrations/` 中的旧任务文件不作为当前状态
+- `06_Archive/Project_Migrations/` 中的旧任务文件不作为当前状态
 
 优先关注：
 - `Project.md / 下一步`
 - 与 `Current_Priorities` 中的项目相关的
 
-**完成标准**：每个活跃项目的 `下一步` 与 `Backlog` 均已读取并纳入候选，无遗漏（`20_Archive/Project_Migrations/` 旧任务不计入）。
+**完成标准**：每个活跃项目的 `下一步` 与 `Backlog` 均已读取并纳入候选，无遗漏（`06_Archive/Project_Migrations/` 旧任务不计入）。
 
 ### Step 5: 生成优先计划
 

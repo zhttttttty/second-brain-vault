@@ -1,0 +1,31 @@
+filters:
+  and:
+    - 'file.inFolder("03_Knowledge/00_Cards")'
+    - 'type == "card"'
+    - 'card_type == "person"'
+
+properties:
+  cover:
+    displayName: "图片"
+  source:
+    displayName: "来源"
+  tags:
+    displayName: "主题"
+  created:
+    displayName: "创建日期"
+
+views:
+  - type: cards
+    name: "人物卡片"
+    order:
+      - cover
+      - file.name
+      - tags
+      - source
+  - type: table
+    name: "人物列表"
+    order:
+      - file.name
+      - tags
+      - source
+      - created

@@ -18,10 +18,10 @@ find_example_targets() {
 
   local root target
   for root in \
-    "02_Daily" \
-    "04_Knowledge/00_Cards" \
-    "04_Knowledge/01_Topics" \
-    "05_References/01_Inbox"
+    "01_Daily" \
+    "03_Knowledge/00_Cards" \
+    "03_Knowledge/01_Topics" \
+    "04_References/01_Inbox"
   do
     [[ -d "$root" ]] || continue
     while IFS= read -r -d '' target; do
@@ -30,8 +30,8 @@ find_example_targets() {
     done < <(find "$root" -depth -name '_EXAMPLE_*' -print0)
   done
 
-  if [[ -d "03_Projects/_Example_Project" ]]; then
-    example_targets+=("03_Projects/_Example_Project")
+  if [[ -d "02_Projects/_Example_Project" ]]; then
+    example_targets+=("02_Projects/_Example_Project")
     example_count=$((example_count + 1))
   fi
 }
@@ -43,9 +43,9 @@ find_readme_targets() {
   local readme
   for readme in \
     "README.md" \
-    "03_Projects/README.md" \
-    "04_Knowledge/00_Cards/README.md" \
-    "04_Knowledge/01_Topics/README.md"
+    "02_Projects/README.md" \
+    "03_Knowledge/00_Cards/README.md" \
+    "03_Knowledge/01_Topics/README.md"
   do
     [[ -f "$readme" ]] || continue
     if grep -Eq '_EXAMPLE_|_Example_Project' "$readme"; then
@@ -100,7 +100,7 @@ for arg in "$@"; do
   esac
 done
 
-if [[ ! -f "agent.md" || ! -d "04_Knowledge/00_Cards/.templates" ]]; then
+if [[ ! -f "agent.md" || ! -d "Templates/Cards" ]]; then
   echo "Error: run this helper from the Vault root directory." >&2
   exit 1
 fi

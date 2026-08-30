@@ -140,7 +140,7 @@ disable-model-invocation: true
 - **行动/后续**（如用户提到）：下一步做什么
 
 ### 3. 沉淀到知识库
-确认保存位置后，将整合内容写入 `04_Knowledge/` 目录：
+确认保存位置后，将整合内容写入 `03_Knowledge/` 目录：
 - 如果已有相关主题文件，追加或更新
 - 如果没有，创建新文件
 - 遵循 Vault 的命名规范和写作规则
@@ -148,7 +148,7 @@ disable-model-invocation: true
 
 **写入前确认**：
 ```
-我将把这份内容保存到 `04_Knowledge/[主题].md`。
+我将把这份内容保存到 `03_Knowledge/[主题].md`。
 如果这个位置不对，请告诉我应该放哪里。
 ```
 
@@ -182,14 +182,14 @@ disable-model-invocation: true
 ## 与 Vault 的集成
 
 此技能应该读取的上下文：
-- `01_Context/About_Me.md`：了解用户的背景和兴趣
-- `01_Context/Current_Priorities.md`：了解当前的关注点
-- `04_Knowledge/` 中相关主题：了解已有的知识沉淀
+- `Context/About_Me.md`：了解用户的背景和兴趣
+- `Context/Current_Priorities.md`：了解当前的关注点
+- `03_Knowledge/` 中相关主题：了解已有的知识沉淀
 
 写入时遵循：
-- `00_System/Writing_Rules.md`：写作规范
-- `00_System/Naming_Conventions.md`：命名规范
-- `00_System/Vault_Map.md`：文件存放规则
+- `System/Writing_Rules.md`：写作规范
+- `System/Naming_Conventions.md`：命名规范
+- `System/Vault_Map.md`：文件存放规则
 
 ---
 
@@ -203,7 +203,7 @@ disable-model-invocation: true
 **用户**：我觉得"跨领域连接"里的几个点很有意思，特别是和"能量"的类比。另外，"反向思考"里的"注意力消失"也值得深挖。
 
 **AI**：[整合用户选中的点，输出结构化文档]
-     我将把这份内容保存到 `04_Knowledge/注意力.md`。
+     我将把这份内容保存到 `03_Knowledge/注意力.md`。
      如果位置不对，请告诉我。
 
 **用户**：可以

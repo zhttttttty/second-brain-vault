@@ -20,10 +20,10 @@
 
 如果你在使用中发现现有 23 种卡片不够用：
 
-1. 在 `04_Knowledge/00_Cards/.templates/` 新建 `Your_Card.md`
+1. 在 `Templates/Cards/` 新建 `Your_Card.md`
 2. 参考现有模板的 frontmatter + 区块结构
-3. 同时在 `04_Knowledge/00_Cards/` 根目录加一张 `_EXAMPLE_your_xxx.md`
-4. 更新 `04_Knowledge/00_Cards/README.md` 的表格
+3. 同时在 `03_Knowledge/00_Cards/` 根目录加一张 `_EXAMPLE_your_xxx.md`
+4. 更新 `03_Knowledge/00_Cards/README.md` 的表格
 
 #### 新的 AI Skill
 
@@ -44,7 +44,7 @@
 
 #### 改进规则文档
 
-`00_System/` 下的规则是活文件，欢迎补充细节、修正不清晰的地方。
+`System/` 下的规则是活文件，欢迎补充细节、修正不清晰的地方。
 
 ---
 
@@ -69,7 +69,7 @@
 - 目录命名沿用 `{编号}_{名称}/` 的约定
 - 卡片类型命名沿用 `snake_case`
 - 示例文件统一带 `_EXAMPLE_` 前缀
-- 模板文件统一放在 `.templates/`
+- 模板文件统一放在根目录 `Templates/`；卡片模板放在 `Templates/Cards/`
 
 ### 文件与命名
 
@@ -78,7 +78,7 @@
 - 项目目录：`PascalCase` 或 `snake_case`
 - 规则文件：`PascalCase_Name.md`
 
-详见 `00_System/Naming_Conventions.md`。
+详见 `System/Naming_Conventions.md`。
 
 ---
 
@@ -108,7 +108,7 @@
 范围（scope）建议：
 - `cards` — 卡片模板相关
 - `skills` — AI Skills
-- `system` — 00_System/ 下的规则
+- `system` — System/ 下的规则
 - `obsidian` — .obsidian 配置
 - `docs` — README / QUICK_START 等
 

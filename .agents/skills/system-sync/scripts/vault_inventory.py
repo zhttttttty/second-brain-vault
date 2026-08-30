@@ -31,7 +31,7 @@ def main() -> None:
     args = parser.parse_args()
 
     root = Path(args.vault).resolve()
-    card_root = root / "04_Knowledge" / "00_Cards"
+    card_root = root / "03_Knowledge" / "00_Cards"
     card_files = sorted(
         path
         for path in card_root.glob("*.md")
@@ -44,10 +44,11 @@ def main() -> None:
         if (value := frontmatter_value(path, "card_type")) is not None
     )
 
-    templates = list((card_root / ".templates").glob("*_Card.md"))
+    templates = list((root / "Templates" / "Cards").glob("*_Card.md"))
     skills = list((root / ".agents" / "skills").glob("*/SKILL.md"))
     readmes = [path for path in root.rglob("README.md") if ".git" not in path.parts]
-    bases = list((root / "07_Bases").glob("*.base"))
+    bases = list((root / "Bases").glob("*.base"))
+    canvases = [path for path in root.rglob("*.canvas") if ".git" not in path.parts]
     mocs = list(card_root.glob("moc_*.md"))
     attachments = [
         path
@@ -74,6 +75,7 @@ def main() -> None:
             "skills": len(skills),
             "readmes": len(readmes),
             "bases": len(bases),
+            "canvases": len(canvases),
             "mocs": len(mocs),
             "attachments": len(attachments),
         },
@@ -82,6 +84,7 @@ def main() -> None:
         "skills": relative_paths(skills, root),
         "readmes": relative_paths(readmes, root),
         "bases": relative_paths(bases, root),
+        "canvases": relative_paths(canvases, root),
         "mocs": relative_paths(mocs, root),
         "attachments": relative_paths(attachments, root),
     }

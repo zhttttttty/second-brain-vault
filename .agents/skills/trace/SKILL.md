@@ -15,16 +15,16 @@ description: Track how a topic has evolved across the vault over time. Use this 
 
 首先读取 `AGENTS.md` 理解仓库结构和导航规则。
 
-读取 `01_Context/` 下的相关文件（如果有主题相关的）。
+读取 `Context/` 下的相关文件（如果有主题相关的）。
 
 ### Step 2: 搜索主题提及
 
 使用 Grep 工具搜索整个 vault，按优先级顺序：
 
-1. **02_Daily/** — 每日记录，捕捉时间线索
-2. **03_Projects/** — 项目文件，捕捉决策和进展
-3. **04_Knowledge/** — 知识沉淀，捕捉定义和框架
-4. **01_Context/** — 全局上下文，捕捉定位和方向
+1. **01_Daily/** — 每日记录，捕捉时间线索
+2. **02_Projects/** — 项目文件，捕捉决策和进展
+3. **03_Knowledge/** — 知识沉淀，捕捉定义和框架
+4. **Context/** — 全局上下文，捕捉定位和方向
 
 搜索策略：
 - 直接主题名称
@@ -132,10 +132,10 @@ description: Track how a topic has evolved across the vault over time. Use this 
 
 ## 搜索优先级
 
-- **优先搜索**：`02_Daily/`（每日记录，捕捉时间线索）
-- **其次**：`03_Projects/`（项目文件，捕捉决策和进展）
-- **补充**：`04_Knowledge/`（知识沉淀，捕捉定义和框架）
-- **背景**：`01_Context/`（全局上下文）
+- **优先搜索**：`01_Daily/`（每日记录，捕捉时间线索）
+- **其次**：`02_Projects/`（项目文件，捕捉决策和进展）
+- **补充**：`03_Knowledge/`（知识沉淀，捕捉定义和框架）
+- **背景**：`Context/`（全局上下文）
 
 ---
 

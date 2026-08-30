@@ -3,7 +3,7 @@
 - Use the selected template as the authority for frontmatter fields and body
   sections.
 - Keep `type: card`; set `card_type` to the mapped type.
-- Keep `tags` to 1–3 registered subject tags from `00_System/Vault_Schema.md`.
+- Keep `tags` to 1–3 registered subject tags from `System/Vault_Schema.md`.
   Do not duplicate `type`, `card_type`, source, status, people, or dates in tags;
   use `tags: []` when no stable subject is clear.
 - Use valid YAML. Quote strings when quoting avoids ambiguity, including values

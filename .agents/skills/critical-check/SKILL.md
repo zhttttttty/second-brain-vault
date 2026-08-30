@@ -23,7 +23,7 @@ description: 对观点、论证与证据进行建设性审查。Use when the use
 ### 1. Locate the material and context
 
 - 直接分析用户贴出的内容；读取用户提供的文件路径。
-- 对 wikilink 或卡片名，先在 `04_Knowledge/00_Cards/` 搜索。
+- 对 wikilink 或卡片名，先在 `03_Knowledge/00_Cards/` 搜索。
 - 对仅有主题的请求，用 `rg` 搜索相关内容，并说明本次采用的材料范围。
 - 仅当审查依赖用户方向、受众或写作标准时，读取对应的 Context 或 Writing Rules 文件。
 

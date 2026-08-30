@@ -43,7 +43,7 @@ update.
 Run:
 
 ```bash
-python .agents/skills/spaced-review/scripts/spaced_review.py review "04_Knowledge/00_Cards/card_name.md" --rating good
+python .agents/skills/spaced-review/scripts/spaced_review.py review "03_Knowledge/00_Cards/card_name.md" --rating good
 ```
 
 Add `--note` only for user-provided feedback worth retaining. The script updates
@@ -61,7 +61,7 @@ retain long term.
 Run:
 
 ```bash
-python .agents/skills/spaced-review/scripts/spaced_review.py enroll "04_Knowledge/00_Cards/card_name.md" --priority core
+python .agents/skills/spaced-review/scripts/spaced_review.py enroll "03_Knowledge/00_Cards/card_name.md" --priority core
 ```
 
 Enrollment sets the card to `learning`, with a one-day interval and a next due
@@ -73,7 +73,7 @@ from script output.
 ## Boundaries
 
 - The script only enrolls or reviews Markdown cards directly under
-  `04_Knowledge/00_Cards/`.
+  `03_Knowledge/00_Cards/`.
 - Review one card at a time; do not apply a rating to an ambiguous target.
 - The script is the authority for scheduling calculations. Read
   `references/review-fields.md` when explaining stored review state.

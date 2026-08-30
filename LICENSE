@@ -65,11 +65,11 @@ Code (MIT):
 
 Content (CC BY 4.0):
   - README.md, QUICK_START.md, CONTRIBUTING.md, and all other documentation
-  - 00_System/ rules and writing conventions
-  - Card templates in 04_Knowledge/00_Cards/.templates/
-  - Project templates in 03_Projects/.templates/
-  - Topic maps in 04_Knowledge/01_Topics/
+  - System/ rules and writing conventions
+  - Card templates in Templates/Cards/
+  - Project and Daily templates in Templates/
+  - Topic maps in 03_Knowledge/01_Topics/
   - Example cards, example projects, example daily notes
-  - 07_Bases/ base definitions (treated as content)
+  - Bases/ base definitions (treated as content)
 
 When in doubt, treat as content (CC BY 4.0).

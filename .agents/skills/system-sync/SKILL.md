@@ -1,13 +1,13 @@
 ---
 name: system-sync
-description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中，并运行确定性结构校验。适用于更新 `00_System/Vault_Map.md`、`agent.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README 数量、Base 数量、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / agent / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
+description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或结构变化后的信息，同步到系统级导航与说明文件中，并运行确定性结构校验。适用于更新 `System/Vault_Map.md`、`agent.md`、根目录 `README.md`、目录级 `README.md`、`Skills_Manual.md`、MOC 内容地图，以及卡片数量、卡片类型数量、模板数量、技能数量、README、Base、Canvas、附件迁移和目录结构变化等统计。Use this skill whenever the user says “同步系统信息”, “更新系统地图”, “同步 README / agent / Vault Map”, “统计新增卡片和技能”, “更新技能说明手册”, “sync vault metadata”, or asks to make the vault's documentation reflect recent migrations, new skills, new card types, new templates, moved content, or changed counts.
 ---
 
 # System Sync: 系统信息同步器
 
 本技能用于维护 Vault 的系统地图和说明文件，让它们持续反映当前文件系统的真实状态。
 
-它不是内容创作技能，也不是项目规划技能。它只处理“系统说明是否过期”这件事：当目录、模板、技能、README、Base、MOC、附件、卡片统计或系统规则发生变化时，更新对应的导航文件和说明文件。
+它不是内容创作技能，也不是项目规划技能。它只处理“系统说明是否过期”这件事：当目录、模板、技能、README、Base、Canvas、MOC、附件、卡片统计或系统规则发生变化时，更新对应的导航文件和说明文件。
 
 ---
 
@@ -17,36 +17,38 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 
 当前核心目录：
 
-- `00_System/` — 系统地图、任务管理、写作规范和命名规范
-- `01_Context/` — 稳定全局上下文
-- `02_Daily/` — 每日记录和模板
-- `03_Projects/` — 项目资料和项目模板
-- `04_Knowledge/` — 原子知识卡片和长期主题地图
-- `05_References/` — 外部剪藏与参考资料
-- `06_Tasks/` — Inbox 和任务管理
-- `07_Bases/` — Obsidian Base 数据库视图
+- `System/` — 系统地图、任务管理、写作规范和命名规范
+- `Context/` — 稳定全局上下文
+- `01_Daily/` — 每日记录
+- `02_Projects/` — 项目资料
+- `03_Knowledge/` — 原子知识卡片和长期主题地图
+- `04_References/` — 外部剪藏与参考资料
+- `05_Tasks/` — Inbox 和任务管理
+- `06_Archive/` — 已退出活跃工作流但仍需保留的历史内容
+- `Templates/` — Daily、Project 和 Cards 模板的单一来源
+- `Bases/` — Obsidian Base 数据库视图
 - `.agents/skills/` — 本地技能
 
 当前系统文件重点：
 
 - `AGENTS.md` — 指向 `agent.md` 的符号链接，是 AI 入口说明
 - `agent.md` — 总导航和 AI 协作规则
-- `00_System/Vault_Map.md` — Vault 结构地图
-- `00_System/Writing_Rules.md` — 写作与附件规则
-- `00_System/Naming_Conventions.md` — 命名规则
-- `00_System/Task_Management_Rules.md` — 任务管理规则
+- `System/Vault_Map.md` — Vault 结构地图
+- `System/Writing_Rules.md` — 写作与附件规则
+- `System/Naming_Conventions.md` — 命名规则
+- `System/Task_Management_Rules.md` — 任务管理规则
 - `README.md` — 面向使用者的项目说明
 - `Skills_Manual.md` — 本地技能说明手册
+- `.agents/scripts/migrate-vault-layout.ps1` — 旧目录结构到当前布局的 Dry Run / Apply 迁移助手
 
 当前目录级 README 通常包括：
 
-- `03_Projects/README.md`
-- `04_Knowledge/README.md`
-- `04_Knowledge/00_Cards/README.md`
-- `04_Knowledge/01_Topics/README.md`
-- `05_References/README.md`
-
-注意：不要假设存在 `20_Archive/`。只有实际扫描到该目录或用户明确新增时，才把它写入系统说明。
+- `02_Projects/README.md`
+- `03_Knowledge/README.md`
+- `03_Knowledge/00_Cards/README.md`
+- `03_Knowledge/01_Topics/README.md`
+- `04_References/README.md`
+- `06_Archive/README.md`
 
 ---
 
@@ -64,6 +66,7 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 - 本地技能数量和技能清单
 - README 清单
 - Base 文件数量和清单
+- Canvas 文件数量和清单
 - MOC 文件数量和清单
 - 附件数量或新增附件清单
 - 关键目录和系统文件是否存在
@@ -71,7 +74,7 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 写入统计时必须说明统计口径，例如：
 
 - “按 `type: card` 统计”
-- “按 `04_Knowledge/00_Cards/*.md` 中的示例卡片也纳入统计”
+- “按 `03_Knowledge/00_Cards/*.md` 中的示例卡片也纳入统计”
 - “按 `.agents/skills/*/SKILL.md` 统计”
 - “不含 `.git/` 和 `.obsidian/`”
 
@@ -101,15 +104,15 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 
 推荐落点：
 
-- 全局结构、目录职责、系统文件清单 → `00_System/Vault_Map.md`
+- 全局结构、目录职责、系统文件清单 → `System/Vault_Map.md`
 - AI 读写与协作原则 → `agent.md`
-- 写作、附件、frontmatter 规则 → `00_System/Writing_Rules.md`
-- 命名规则 → `00_System/Naming_Conventions.md`
+- 写作、附件、frontmatter 规则 → `System/Writing_Rules.md`
+- 命名规则 → `System/Naming_Conventions.md`
 - 总入口和协作规则 → `agent.md`
 - 面向使用者的项目介绍 → `README.md`
 - 目录内部说明 → 对应目录下的 `README.md`
 - 本地技能总览 → `Skills_Manual.md`
-- MOC 内容地图 → `04_Knowledge/00_Cards/moc_*.md`
+- MOC 内容地图 → `03_Knowledge/00_Cards/moc_*.md`
 
 其他文件中可以放短摘要和指向链接，但不要重复维护同一份长说明。
 
@@ -169,10 +172,10 @@ description: 将当前 Obsidian Vault 中新增、删除、迁移、重命名或
 
 - `AGENTS.md`
 - `agent.md`
-- `00_System/Vault_Map.md`
-- `00_System/Writing_Rules.md`
-- `00_System/Naming_Conventions.md`
-- `00_System/Task_Management_Rules.md`
+- `System/Vault_Map.md`
+- `System/Writing_Rules.md`
+- `System/Naming_Conventions.md`
+- `System/Task_Management_Rules.md`
 - `README.md`
 - `Skills_Manual.md`（如果存在，或任务涉及技能）
 
@@ -196,7 +199,7 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 - **技能统计**：新增、删除或修改技能后，是否需要更新 `Skills_Manual.md`
 - **卡片统计**：卡片总数、类型分布、模板数量是否变化
 - **卡片类型**：模板清单、命名规则、卡片类型说明是否变化
-- **Base 统计**：`07_Bases/` 下的 Base 文件是否变化
+- **Base / Canvas 统计**：`Bases/` 下的 Base 文件或全库 Canvas 是否变化
 - **MOC 同步**：新增卡片是否需要加入相关 MOC
 - **附件迁移**：附件目录规则或附件数量是否变化
 - **总入口**：`agent.md` 是否需要新增重要入口或规则
@@ -205,20 +208,20 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 
 ### Step 3: 计算真实统计
 
-优先使用 `scripts/vault_inventory.py`。脚本只依赖 Python 标准库，在 Windows、macOS 和 Linux 上使用同一统计口径，并输出卡片、类型、模板、技能、README、Base、MOC 与附件的 JSON 清单。
+优先使用 `scripts/vault_inventory.py`。脚本只依赖 Python 标准库，在 Windows、macOS 和 Linux 上使用同一统计口径，并输出卡片、类型、模板、技能、README、Base、Canvas、MOC 与附件的 JSON 清单。
 
 统计默认不把 `_EXAMPLE_*`、目录 README 和模板算作正式卡片。结果为空时报告“当前未发现对应文件”，不要编造数量。
 
 ### Step 4: 更新目标文件
 
-#### `00_System/Vault_Map.md`
+#### `System/Vault_Map.md`
 
 适合更新：
 
 - 目录结构变化
 - 系统文件清单变化
 - 卡片类型和模板概览
-- `07_Bases/` 文件变化
+- `Bases/` 文件变化
 - `Skills_Manual.md` 作为系统入口的说明
 - 新增目录级 README
 
@@ -261,11 +264,12 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 
 当前模板库中常见目录级 README：
 
-- `03_Projects/README.md`
-- `04_Knowledge/README.md`
-- `04_Knowledge/00_Cards/README.md`
-- `04_Knowledge/01_Topics/README.md`
-- `05_References/README.md`
+- `02_Projects/README.md`
+- `03_Knowledge/README.md`
+- `03_Knowledge/00_Cards/README.md`
+- `03_Knowledge/01_Topics/README.md`
+- `04_References/README.md`
+- `06_Archive/README.md`
 
 #### `Skills_Manual.md`
 
@@ -287,7 +291,7 @@ python .agents/skills/system-sync/scripts/vault_inventory.py --vault .
 MOC 文件通常位于：
 
 ```bash
-04_Knowledge/00_Cards/moc_*.md
+03_Knowledge/00_Cards/moc_*.md
 ```
 
 匹配建议：
@@ -326,7 +330,7 @@ MOC 不更新条件：
 python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 ```
 
-脚本检查 Frontmatter YAML、`tags` / `related` 类型、未登记标签、卡片模板映射、说明文档计数、技能手册章节，以及 `AGENTS.md` / `.claude/skills` 兼容入口。
+脚本检查 Frontmatter YAML、`tags` / `related` 类型、未登记标签、卡片模板映射、Base Schema 与模板属性、JSON Canvas 引用、说明文档计数、技能手册章节，以及 `AGENTS.md` / `.claude/skills` 兼容入口。
 
 - 缺少 PyYAML 时，提示用户运行 `python -m pip install -r requirements-dev.txt`，不要把依赖缺失误报成 Vault 内容错误。
 - 脚本失败时保留具体错误，不要用语言模型目测结果覆盖确定性错误。
@@ -352,6 +356,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 - 本地技能：{{count}} 个
 - README：{{count}} 个
 - Base：{{count}} 个
+- Canvas：{{count}} 个
 - MOC：{{count}} 个
 
 ## 未更新但建议关注
@@ -369,15 +374,15 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 
 允许写入：
 
-- `00_System/Vault_Map.md`
-- `00_System/Writing_Rules.md`
-- `00_System/Naming_Conventions.md`
-- `00_System/Task_Management_Rules.md`
+- `System/Vault_Map.md`
+- `System/Writing_Rules.md`
+- `System/Naming_Conventions.md`
+- `System/Task_Management_Rules.md`
 - `agent.md`
 - `README.md`
 - 各目录 `README.md`
 - `Skills_Manual.md`
-- `04_Knowledge/00_Cards/moc_*.md`
+- `03_Knowledge/00_Cards/moc_*.md`
 - 与同步任务直接相关的系统规则文件
 
 不要写入：

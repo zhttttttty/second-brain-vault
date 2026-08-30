@@ -1,0 +1,26 @@
+schema_version: 1
+source:
+  repository: "https://github.com/kepano/obsidian-skills"
+  ref: "a1dc48e68138490d522c04cbf5822214c6eb1202"
+  checked_at: "2026-08-30"
+
+layers:
+  vault_workflows: ".agents/skills"
+  external_platform_skills: "由所用 Agent 安装，不复制进 Vault"
+
+skills:
+  - name: obsidian-markdown
+    requirement: required
+    purpose: "编写 Obsidian Flavored Markdown"
+  - name: obsidian-bases
+    requirement: required
+    purpose: "创建和维护当前格式的 .base 视图"
+  - name: json-canvas
+    requirement: optional
+    purpose: "创建和维护 JSON Canvas"
+  - name: obsidian-cli
+    requirement: optional
+    purpose: "在已安装并运行 Obsidian CLI 时进行实时操作与验证"
+  - name: defuddle
+    requirement: optional
+    purpose: "将网页正文提取为干净 Markdown，供 capture-web 使用"

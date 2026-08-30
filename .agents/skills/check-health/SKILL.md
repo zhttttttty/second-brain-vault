@@ -21,7 +21,7 @@ disable-model-invocation: true
 **执行流程**：
 
 1. **扫描知识卡片**
-   - 优先检查 `04_Knowledge/00_Cards/` 下的所有卡片
+   - 优先检查 `03_Knowledge/00_Cards/` 下的所有卡片
    - 识别卡片类型（insight, mentalmodel, counterintuitive, paradox 等）
 
 2. **主题聚类**
@@ -140,7 +140,7 @@ disable-model-invocation: true
 
 **目标**：防止标签蔓延、同义词分裂和标签与 Properties 重复。
 
-1. 读取 `00_System/Vault_Schema.md` 中已登记的主题标签。
+1. 读取 `System/Vault_Schema.md` 中已登记的主题标签。
 2. 扫描正式内容的 frontmatter；模板、README 与 `_EXAMPLE_*` 可单独列为示范质量，不计入正式违规数。
 3. 报告以下问题：
    - 未登记、大小写不统一或同义并存的标签；
@@ -219,7 +219,7 @@ disable-model-invocation: true
 
 ## 执行注意事项
 
-1. **扫描范围**：优先检查 `04_Knowledge/00_Cards/`，如果用户要求可扩展到全库
+1. **扫描范围**：优先检查 `03_Knowledge/00_Cards/`，如果用户要求可扩展到全库
 2. **性能考虑**：卡片数量较多时，分批处理避免超时
 3. **保守判断**：对于"矛盾"，只列出疑似情况，不做绝对判断
 4. **可操作建议**：每个问题都应该给出具体的处理建议

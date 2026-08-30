@@ -17,7 +17,7 @@ python .agents/skills/onboard/scripts/cleanup_examples.py --list
 
 The output distinguishes files to delete (`DELETE`) from README files to update (`UPDATE`). Treat the numeric `TOTAL` line as the initialization signal.
 
-- If `TOTAL=0`, say only that initialization is already complete, then suggest filling in `01_Context/About_Me.md` and `01_Context/Current_Priorities.md` or running `/card-creator`. Stop there.
+- If `TOTAL=0`, say only that initialization is already complete, then suggest filling in `Context/About_Me.md` and `Context/Current_Priorities.md` or running `/card-creator`. Stop there.
 - If examples exist, continue with the onboarding flow.
 
 ## 2. Welcome the user
@@ -33,16 +33,16 @@ Read the files that exist from the lists below. Present each selected file as a 
 Core entry points:
 
 - `QUICK_START.md`
-- `01_Context/About_Me.md`
-- `01_Context/Current_Priorities.md`
+- `Context/About_Me.md`
+- `Context/Current_Priorities.md`
 
 Representative examples:
 
-- `02_Daily/_EXAMPLE_2025-01-01.md`
-- `03_Projects/_Example_Project/Project.md`
-- One `_EXAMPLE_*` file from `04_Knowledge/00_Cards/`
-- `04_Knowledge/01_Topics/_EXAMPLE_Learning_Science.md`
-- `05_References/01_Inbox/_EXAMPLE_clip.md`
+- `01_Daily/_EXAMPLE_2025-01-01.md`
+- `02_Projects/_Example_Project/Project.md`
+- One `_EXAMPLE_*` file from `03_Knowledge/00_Cards/`
+- `03_Knowledge/01_Topics/_EXAMPLE_Learning_Science.md`
+- `04_References/01_Inbox/_EXAMPLE_clip.md`
 
 Keep the tour compact: group the core files together and the examples together.
 
@@ -55,7 +55,7 @@ Stop and wait for the user's answer. Do not interpret silence, ambiguity, or an 
 The cleanup scope must remain limited to:
 
 - `_EXAMPLE_*` entries found by the helper in its designated template directories
-- `03_Projects/_Example_Project/`
+- `02_Projects/_Example_Project/`
 - Example-specific references in the README files reported by the helper
 
 Never delete other paths merely because their names contain `example`. Do not remove unrelated README content.
@@ -74,7 +74,7 @@ If the user declines, do not delete anything. Mention that `/onboard` can be run
 
 In either case, close with two next steps:
 
-1. Fill in `01_Context/About_Me.md` and `01_Context/Current_Priorities.md`.
+1. Fill in `Context/About_Me.md` and `Context/Current_Priorities.md`.
 2. Run `/card-creator` to create a first knowledge card.
 
 Mention `/today` only as an optional next step for planning the day and creating the Daily Note.

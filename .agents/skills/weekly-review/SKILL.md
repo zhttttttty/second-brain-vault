@@ -23,12 +23,12 @@ description: Weekly review to check progress across projects, courses, products,
 
 ### Step 3: 读取本周 Daily Notes
 
-从 `02_Daily/` 目录读取本周所有日期对应的 `.md` 文件。
+从 `01_Daily/` 目录读取本周所有日期对应的 `.md` 文件。
 重点读取“今日重点”“今日记录”和“一句话总结”；根据内容语义识别进展、问题、决定和洞察，不依赖更多固定栏目。
 
 ### Step 4: 读取项目主页
 
-扫描 `03_Projects/` 下所有项目的 `Project.md`，重点读取“当前状态”“下一步”“Backlog”和“进展与决策”，识别：
+扫描 `02_Projects/` 下所有项目的 `Project.md`，重点读取“当前状态”“下一步”“Backlog”和“进展与决策”，识别：
 - 本周完成的任务
 - 本周推进的事项
 - 仍在进行中的工作
@@ -37,8 +37,8 @@ description: Weekly review to check progress across projects, courses, products,
 ### Step 5: 读取任务清单
 
 读取：
-- `06_Tasks/Tasks.md` — 独立任务的下一步、等待和最近完成
-- `06_Tasks/Inbox.md` — 尚未分类、需要处理的新任务
+- `05_Tasks/Tasks.md` — 独立任务的下一步、等待和最近完成
+- `05_Tasks/Inbox.md` — 尚未分类、需要处理的新任务
 
 ### Step 6: 分析并生成周回顾
 
@@ -144,7 +144,7 @@ description: Weekly review to check progress across projects, courses, products,
 ## 写回规则
 
 - **默认只读**：仅展示回顾内容，不自动写入
-- **确认后写入**：用户明确确认后，写入到 `02_Daily/` 目录，文件名格式为 `Week_YYYY-Www.md`（如 `Week_2026-W16.md`）
+- **确认后写入**：用户明确确认后，写入到 `01_Daily/` 目录，文件名格式为 `Week_YYYY-Www.md`（如 `Week_2026-W16.md`）
 
 ---
 

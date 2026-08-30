@@ -1,0 +1,36 @@
+filters:
+  and:
+    - 'file.inFolder("03_Knowledge/00_Cards")'
+    - 'type == "card"'
+    - 'card_type == "subscription"'
+
+properties:
+  title:
+    displayName: "服务"
+  subscribed:
+    displayName: "订阅日期"
+  renewal:
+    displayName: "续费日期"
+  service_type:
+    displayName: "类型"
+  price:
+    displayName: "价格"
+  currency:
+    displayName: "币种"
+  billing_cycle:
+    displayName: "周期"
+  url:
+    displayName: "链接"
+
+views:
+  - type: table
+    name: "订阅列表"
+    order:
+      - title
+      - service_type
+      - price
+      - currency
+      - billing_cycle
+      - subscribed
+      - renewal
+      - url

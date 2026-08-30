@@ -15,7 +15,7 @@ source, and uncertainty; write cards only after the requested scope is clear.
 Apply the **atomic** test: a card has one core object, claim, question, or
 practice that can be named in one sentence and reused independently.
 
-Read `00_System/Vault_Schema.md` and search existing cards before proposing a
+Read `System/Vault_Schema.md` and search existing cards before proposing a
 new file. Update an existing card instead of duplicating it when the same core
 is already covered; do not create a card for a passing mention that fails the
 Vault's create/update threshold.
@@ -47,7 +47,7 @@ policy are explicit.
 
 ### 3. Fill the template
 
-Read the exact mapped template under `04_Knowledge/00_Cards/.templates/`.
+Read the exact mapped template under `Templates/Cards/`.
 Keep `type: card`; set `card_type` to the mapped type. Fill only fields present
 in that template.
 
@@ -61,7 +61,7 @@ Use `待补充` or an empty optional value for genuinely unknown information; le
 no literal `{{...}}` placeholders in the completed card. Read
 `references/writing-rules.md` when filling frontmatter, filenames, or links.
 Use `tags` only for 1–3 stable subject tags registered in
-`00_System/Vault_Schema.md`; never repeat `type`, `card_type`, source, status,
+`System/Vault_Schema.md`; never repeat `type`, `card_type`, source, status,
 people, dates, or filenames as tags. If no subject tag clearly applies, use an
 empty list instead of inventing one. Propose a Schema update separately when a
 genuinely stable new subject emerges.
@@ -90,8 +90,8 @@ Name the file `{card_type}_{title}.md`, using a concise stable title and the
 Vault naming rules. If that exact filename already exists, show the collision
 and obtain confirmation before replacing or choosing a new name.
 
-Write the card to `04_Knowledge/00_Cards/`, parse its frontmatter, verify its
-template and links, append one concise entry to `04_Knowledge/CHANGELOG.md`, and
+Write the card to `03_Knowledge/00_Cards/`, parse its frontmatter, verify its
+template and links, append one concise entry to `03_Knowledge/CHANGELOG.md`, and
 report the final paths.
 
 **Completion:** The new file exists at the approved path, its frontmatter

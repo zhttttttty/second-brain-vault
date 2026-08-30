@@ -1,0 +1,34 @@
+filters:
+  and:
+    - 'file.inFolder("03_Knowledge/00_Cards")'
+    - 'type == "card"'
+    - 'card_type == "book"'
+
+properties:
+  book:
+    displayName: "书名"
+  author:
+    displayName: "作者"
+  cover:
+    displayName: "封面"
+  douban_url:
+    displayName: "豆瓣"
+  created:
+    displayName: "创建日期"
+
+views:
+  - type: cards
+    name: "封面墙"
+    order:
+      - cover
+      - book
+      - author
+      - created
+  - type: table
+    name: "书单"
+    order:
+      - book
+      - author
+      - douban_url
+      - tags
+      - created

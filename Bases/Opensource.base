@@ -1,0 +1,34 @@
+filters:
+  and:
+    - 'file.inFolder("03_Knowledge/00_Cards")'
+    - 'type == "card"'
+    - 'card_type == "opensource"'
+
+properties:
+  title:
+    displayName: "项目"
+  author:
+    displayName: "作者/组织"
+  stars:
+    displayName: "Stars"
+  language:
+    displayName: "语言"
+  license:
+    displayName: "许可证"
+  url:
+    displayName: "链接"
+  created:
+    displayName: "记录日期"
+
+views:
+  - type: table
+    name: "开源项目列表"
+    order:
+      - title
+      - author
+      - stars
+      - language
+      - license
+      - url
+      - tags
+      - created

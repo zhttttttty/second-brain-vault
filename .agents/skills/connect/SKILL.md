@@ -15,15 +15,15 @@ description: Find meaningful connections between two topics across the vault. Us
 
 首先读取 `AGENTS.md` 理解仓库结构和导航规则。
 
-了解目录优先级：`04_Knowledge/` > `03_Projects/` > `02_Daily/`
+了解目录优先级：`03_Knowledge/` > `02_Projects/` > `01_Daily/`
 
 ### Step 2: 搜索主题 A
 
 使用 Grep 工具按优先级顺序搜索：
 
-1. **04_Knowledge/** — 知识沉淀和定义
-2. **03_Projects/** — 项目文件和决策
-3. **02_Daily/** — 每日记录和讨论
+1. **03_Knowledge/** — 知识沉淀和定义
+2. **02_Projects/** — 项目文件和决策
+3. **01_Daily/** — 每日记录和讨论
 
 搜索策略：
 - 直接主题名称
@@ -149,9 +149,9 @@ description: Find meaningful connections between two topics across the vault. Us
 
 ## 搜索优先级
 
-- **优先搜索**：`04_Knowledge/`（知识沉淀和定义）
-- **其次**：`03_Projects/`（项目文件和决策）
-- **补充**：`02_Daily/`（每日记录和讨论）
+- **优先搜索**：`03_Knowledge/`（知识沉淀和定义）
+- **其次**：`02_Projects/`（项目文件和决策）
+- **补充**：`01_Daily/`（每日记录和讨论）
 
 ---
 

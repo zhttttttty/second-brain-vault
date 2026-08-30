@@ -2,14 +2,14 @@
 description: 本地 AI 技能说明手册
 type: system
 tags: [知识管理/Obsidian, 技术/Agent]
-updated: 2026-08-29
+updated: 2026-08-30
 ---
 # Skills Manual
 
 这份手册说明当前 Vault 自带的本地技能，帮助你知道在什么场景下可以直接对 AI 说什么，以及每个技能会读取哪些内容、产生什么结果、是否会写回知识库。
 
 当前统计口径：按 `.agents/skills/*/SKILL.md` 统计。
-当前本地技能数量：17 个。
+当前本地技能数量：18 个。
 
 ---
 
@@ -21,6 +21,7 @@ updated: 2026-08-29
 
 - `/onboard`（新安装模板时明确运行）
 - `/digest`（处理一篇 Inbox 剪藏）
+- “保存这个网页到知识库”（先用 `capture-web` 捕获）
 - “帮我生成今天的计划”
 - “做一个周回顾”
 - “把这段内容创建成知识卡片”
@@ -46,22 +47,23 @@ updated: 2026-08-29
 | 技能 | 适合场景 | 默认行为 | 主要读取位置 | 可能写入位置 |
 |---|---|---|---|---|
 | `onboard` | 首次使用模板，快速导览并清理示例 | 先只读，明确确认后清理 | 新手入口、个人上下文、代表性示例 | 删除模板示例并更新相关 README |
-| `session-brief` | 开始一次工作会话，快速恢复上下文 | 只读 | `01_Context/`, `02_Daily/`, `06_Tasks/`, `03_Projects/` | 不写入 |
-| `today` | 生成今日计划和优先级 | 只读 | `01_Context/`, `06_Tasks/`, `02_Daily/`, `03_Projects/*/Project.md` | 不写入 |
-| `closeday` | 做每日收尾和复盘 | 先只读，确认后写入 | `02_Daily/`, `03_Projects/`, `06_Tasks/` | 今日 Daily Note |
-| `weekly-review` | 做周回顾、总结本周进展 | 先只读，确认后写入 | 本周 Daily Notes, 项目主页, `06_Tasks/` | `02_Daily/Week_YYYY-Www.md` |
-| `digest` | 将单篇 Inbox 剪藏转化为知识、决定或行动，并处理原文 | 先分析，分阶段确认后写入或处置 | `05_References/01_Inbox/`, 相关卡片、Topic、项目 | 卡片 / 项目 / 任务 / `05_References/02_Library/` |
-| `knowledge-system` | 用六步法提炼模型、按关系组体系、存储可追溯知识 | 先只读，确认后写入 | 用户输入、`.agents/skills/knowledge-system/references/`、已有卡片 | `model` 卡片 / `01_Topics/` 主题 / `03_Projects/` |
+| `session-brief` | 开始一次工作会话，快速恢复上下文 | 只读 | `Context/`, `01_Daily/`, `05_Tasks/`, `02_Projects/` | 不写入 |
+| `today` | 生成今日计划和优先级 | 只读 | `Context/`, `05_Tasks/`, `01_Daily/`, `02_Projects/*/Project.md` | 不写入 |
+| `closeday` | 做每日收尾和复盘 | 先只读，确认后写入 | `01_Daily/`, `02_Projects/`, `05_Tasks/` | 今日 Daily Note |
+| `weekly-review` | 做周回顾、总结本周进展 | 先只读，确认后写入 | 本周 Daily Notes, 项目主页, `05_Tasks/` | `01_Daily/Week_YYYY-Www.md` |
+| `capture-web` | 将一个公开网页提取为干净 Markdown | 默认预览，确认后写入 | 用户 URL、网页正文 | `04_References/01_Inbox/` |
+| `digest` | 将单篇 Inbox 剪藏转化为知识、决定或行动，并处理原文 | 先分析，分阶段确认后写入或处置 | `04_References/01_Inbox/`, 相关卡片、Topic、项目 | 卡片 / 项目 / 任务 / `04_References/02_Library/` |
+| `knowledge-system` | 用六步法提炼模型、按关系组体系、存储可追溯知识 | 先只读，确认后写入 | 用户输入、`.agents/skills/knowledge-system/references/`、已有卡片 | `model` 卡片 / `01_Topics/` 主题 / `02_Projects/` |
 | `reading-coach` | 主动阅读、理解、质疑、内化并行动 | 按阅读阶段互动，明确要求后写入 | 用户提供的书籍、文章、论文、课程材料或笔记 | ACTOR 学习笔记 / 知识卡片 |
-| `card-creator` | 创建原子化知识卡片 | 写入 | 用户输入、卡片模板、已有卡片 | `04_Knowledge/00_Cards/` |
+| `card-creator` | 创建原子化知识卡片 | 写入 | 用户输入、卡片模板、已有卡片 | `03_Knowledge/00_Cards/` |
 | `spaced-review` | 管理知识卡片间隔复习 | 按请求读写 | 已启用 SRS 的知识卡片 | 卡片 frontmatter |
-| `brain-storming` | 围绕主题发散思考 | 先只读/输出，确认后沉淀 | `01_Context/`, 相关知识文件 | `04_Knowledge/` |
-| `random-thinking` | 随机抽取知识内容，获得灵感 | 只读 | `04_Knowledge/00_Cards/`, `04_Knowledge/01_Topics/` | 不写入 |
-| `connect` | 寻找两个主题之间的连接 | 只读 | `04_Knowledge/`, `03_Projects/`, `02_Daily/` | 不写入 |
-| `trace` | 追踪一个主题在 Vault 中的演变 | 只读 | `02_Daily/`, `03_Projects/`, `04_Knowledge/`, `01_Context/` | 不写入 |
-| `critical-check` | 对观点、证据、推理做建设性质疑与校验 | 默认只读，确认后写入 | `04_Knowledge/`, `03_Projects/`, `05_References/`, `02_Daily/` | 卡片反思区 / 项目文件 |
+| `brain-storming` | 围绕主题发散思考 | 先只读/输出，确认后沉淀 | `Context/`, 相关知识文件 | `03_Knowledge/` |
+| `random-thinking` | 随机抽取知识内容，获得灵感 | 只读 | `03_Knowledge/00_Cards/`, `03_Knowledge/01_Topics/` | 不写入 |
+| `connect` | 寻找两个主题之间的连接 | 只读 | `03_Knowledge/`, `02_Projects/`, `01_Daily/` | 不写入 |
+| `trace` | 追踪一个主题在 Vault 中的演变 | 只读 | `01_Daily/`, `02_Projects/`, `03_Knowledge/`, `Context/` | 不写入 |
+| `critical-check` | 对观点、证据、推理做建设性质疑与校验 | 默认只读，确认后写入 | `03_Knowledge/`, `02_Projects/`, `04_References/`, `01_Daily/` | 卡片反思区 / 项目文件 |
 | `check-health` | 检查知识库健康状态 | 只读报告 | Markdown 文件、知识卡片、wikilink | 不写入 |
-| `system-sync` | 更新系统地图、README、技能手册等 | 写入系统说明 | 系统文件、README、技能、统计数据 | `00_System/`, `README.md`, `Skills_Manual.md` 等 |
+| `system-sync` | 更新系统地图、README、技能手册等 | 写入系统说明 | 系统文件、README、技能、统计数据 | `System/`, `README.md`, `Skills_Manual.md` 等 |
 
 ---
 
@@ -194,11 +196,11 @@ updated: 2026-08-29
 主要读取：
 
 - `QUICK_START.md`
-- `01_Context/About_Me.md`
-- `01_Context/Current_Priorities.md`
+- `Context/About_Me.md`
+- `Context/Current_Priorities.md`
 - Daily、项目、知识卡片、主题和剪藏中的代表性示例
 
-安全边界：只清理约定目录中的 `_EXAMPLE_*`、`03_Projects/_Example_Project/` 及相关 README 中的示例引用；询问清理时不会在同一轮执行删除。清理助手使用跨平台 Python，并且必须显式传入 `--clean --yes`。初始化不创建 Daily Note。
+安全边界：只清理约定目录中的 `_EXAMPLE_*`、`02_Projects/_Example_Project/` 及相关 README 中的示例引用；询问清理时不会在同一轮执行删除。清理助手使用跨平台 Python，并且必须显式传入 `--clean --yes`。初始化不创建 Daily Note。
 
 ---
 
@@ -215,10 +217,10 @@ updated: 2026-08-29
 主要读取：
 
 - `AGENTS.md`
-- `01_Context/`
-- 最近 7 篇 `02_Daily/`
-- `06_Tasks/Tasks.md`
-- `06_Tasks/Inbox.md`
+- `Context/`
+- 最近 7 篇 `01_Daily/`
+- `05_Tasks/Tasks.md`
+- `05_Tasks/Inbox.md`
 - 活跃项目的 `Project.md`
 
 输出包括：
@@ -245,12 +247,12 @@ updated: 2026-08-29
 
 主要读取：
 
-- `01_Context/Current_Priorities.md`
-- `01_Context/About_Me.md`
-- `06_Tasks/Tasks.md`
-- `06_Tasks/Inbox.md`
-- 今日 Daily Note：`02_Daily/YYYY-MM-DD.md`
-- `03_Projects/*/Project.md`
+- `Context/Current_Priorities.md`
+- `Context/About_Me.md`
+- `05_Tasks/Tasks.md`
+- `05_Tasks/Inbox.md`
+- 今日 Daily Note：`01_Daily/YYYY-MM-DD.md`
+- `02_Projects/*/Project.md`
 
 输出包括：
 
@@ -276,9 +278,9 @@ updated: 2026-08-29
 
 主要读取：
 
-- 今日 Daily Note：`02_Daily/YYYY-MM-DD.md`
-- `03_Projects/*/Project.md`
-- `06_Tasks/Tasks.md`
+- 今日 Daily Note：`01_Daily/YYYY-MM-DD.md`
+- `02_Projects/*/Project.md`
+- `05_Tasks/Tasks.md`
 
 输出包括：
 
@@ -305,10 +307,10 @@ updated: 2026-08-29
 
 主要读取：
 
-- 本周 `02_Daily/YYYY-MM-DD.md`
-- `03_Projects/*/Project.md`
-- `06_Tasks/Tasks.md`
-- `06_Tasks/Inbox.md`
+- 本周 `01_Daily/YYYY-MM-DD.md`
+- `02_Projects/*/Project.md`
+- `05_Tasks/Tasks.md`
+- `05_Tasks/Inbox.md`
 
 输出包括：
 
@@ -320,13 +322,35 @@ updated: 2026-08-29
 - 下周建议
 - 按项目分类的进展
 
-写回规则：默认只展示。用户确认后写入 `02_Daily/Week_YYYY-Www.md`。
+写回规则：默认只展示。用户确认后写入 `01_Daily/Week_YYYY-Www.md`。
+
+---
+
+### `capture-web`
+
+用途：用 Defuddle 将一个公开网页提取为干净 Markdown，预览并在用户确认后写入 `04_References/01_Inbox/`。
+
+使用方式：
+
+```text
+保存这个网页到知识库：https://example.com/article
+```
+
+核心流程：
+
+1. 校验一个公开的 HTTP(S) URL，并确认 `defuddle` 命令可用。
+2. 先运行只读预览，展示标题、目标路径和正文片段。
+3. 用户明确确认后，才用 `--write` 创建一篇 Inbox 剪藏。
+4. 保留 `source`、`clipped` 和提取工具；状态由 Inbox 目录表达，不猜作者或发布日期。
+5. 捕获完成后把精确文件路径交给 `digest` 做价值判断和知识提炼。
+
+注意：默认预览不写盘；不绕过登录、付费墙或验证码；不接受带凭据、localhost 或私有网络 URL；`.md` URL 不经过 Defuddle；不覆盖已存在文件。公开仓库应避免保存未经授权的完整受版权保护文章。
 
 ---
 
 ### `digest`
 
-用途：引导用户一次处理一篇 `05_References/01_Inbox/` 中的剪藏，把外部输入转化为最小而有用的知识、项目决定、行动或明确判断。
+用途：引导用户一次处理一篇 `04_References/01_Inbox/` 中的剪藏，把外部输入转化为最小而有用的知识、项目决定、行动或明确判断。
 
 使用方式：
 
@@ -337,12 +361,12 @@ updated: 2026-08-29
 也可以指定文件：
 
 ```text
-/digest 05_References/01_Inbox/文章标题.md
+/digest 04_References/01_Inbox/文章标题.md
 ```
 
 核心流程：
 
-1. 选择并读取一篇 Inbox 剪藏。
+1. 选择并读取一篇 Inbox 剪藏；如果输入是网页 URL，先交给 `capture-web` 预览并确认捕获。
 2. 必要时询问用户这篇内容要服务什么问题。
 3. AI 自动提炼主张、证据、边界，并查找相关卡片、Topic 和项目。
 4. 提出最小产出方案，由用户确认后再创建卡片、更新项目或记录行动。
@@ -401,7 +425,7 @@ AI 负责：
 适合在这些时候使用：
 
 - 创建观点卡片、问题卡片、术语卡片、书籍笔记、资源卡片等。
-- 把聊天中的一个想法沉淀到 `04_Knowledge/00_Cards/`。
+- 把聊天中的一个想法沉淀到 `03_Knowledge/00_Cards/`。
 - 将多个观点拆分成多张有链接关系的卡片。
 
 支持的常见卡片类型：
@@ -431,17 +455,17 @@ AI 负责：
 
 主要读取：
 
-- `04_Knowledge/00_Cards/.templates/`
-- `04_Knowledge/00_Cards/` 中已有卡片
+- `Templates/Cards/`
+- `03_Knowledge/00_Cards/` 中已有卡片
 
 输出和写入：
 
 - 自动识别或确认卡片类型。
 - 生成文件名：`{类型}_{卡片标题}.md`。
-- 写入 `04_Knowledge/00_Cards/`。
+- 写入 `03_Knowledge/00_Cards/`。
 - 尽量建立有意义的 `related` 链接，避免过度链接。
-- `tags` 只使用 `00_System/Vault_Schema.md` 已登记的 1～3 个主题标签；类型、来源与状态使用 Properties。
-- 写入完成后同步更新 `04_Knowledge/CHANGELOG.md`。
+- `tags` 只使用 `System/Vault_Schema.md` 已登记的 1～3 个主题标签；类型、来源与状态使用 Properties。
+- 写入完成后同步更新 `03_Knowledge/CHANGELOG.md`。
 
 注意：一张卡片只讲一件事。如果输入包含多个独立主题，优先拆分。
 
@@ -465,7 +489,7 @@ AI 负责：
 
 主要读取和写入：
 
-- 读取 `04_Knowledge/00_Cards/` 中 `srs_enabled: true` 的卡片。
+- 读取 `03_Knowledge/00_Cards/` 中 `srs_enabled: true` 的卡片。
 - 更新卡片 frontmatter 中的 SRS 字段。
 
 核心反馈：
@@ -512,7 +536,7 @@ AI 负责：
 
 - 第一阶段只输出发散结果。
 - 用户选择后，再整合成结构化内容。
-- 确认保存位置后，写入 `04_Knowledge/` 中合适的主题文件。
+- 确认保存位置后，写入 `03_Knowledge/` 中合适的主题文件。
 
 ---
 
@@ -528,8 +552,8 @@ AI 负责：
 
 主要读取：
 
-- `04_Knowledge/00_Cards/`
-- `04_Knowledge/01_Topics/`
+- `03_Knowledge/00_Cards/`
+- `03_Knowledge/01_Topics/`
 
 输出包括：
 
@@ -554,9 +578,9 @@ AI 负责：
 
 主要读取顺序：
 
-1. `04_Knowledge/`
-2. `03_Projects/`
-3. `02_Daily/`
+1. `03_Knowledge/`
+2. `02_Projects/`
+3. `01_Daily/`
 
 输出包括：
 
@@ -586,10 +610,10 @@ AI 负责：
 
 主要读取顺序：
 
-1. `02_Daily/`
-2. `03_Projects/`
-3. `04_Knowledge/`
-4. `01_Context/`
+1. `01_Daily/`
+2. `02_Projects/`
+3. `03_Knowledge/`
+4. `Context/`
 
 输出包括：
 
@@ -629,7 +653,7 @@ AI 负责：
 主要读取：
 
 - `AGENTS.md`
-- 用户直接贴出的内容，或 `04_Knowledge/00_Cards/`、`03_Projects/`、`05_References/`、`02_Daily/` 中的指定文件
+- 用户直接贴出的内容，或 `03_Knowledge/00_Cards/`、`02_Projects/`、`04_References/`、`01_Daily/` 中的指定文件
 - 需要事实核查或外部证据时联网检索，并标注来源
 
 输出包括：
@@ -691,10 +715,10 @@ AI 负责：
 
 - `AGENTS.md`
 - `agent.md`
-- `00_System/Vault_Map.md`
-- `00_System/Task_Management_Rules.md`
-- `00_System/Writing_Rules.md`
-- `00_System/Naming_Conventions.md`
+- `System/Vault_Map.md`
+- `System/Task_Management_Rules.md`
+- `System/Writing_Rules.md`
+- `System/Naming_Conventions.md`
 - 根目录 `README.md`
 - `Skills_Manual.md`
 - 相关目录的 `README.md`
@@ -703,16 +727,17 @@ AI 负责：
 
 - 不手动猜数量。
 - 使用 `.agents/skills/system-sync/scripts/vault_inventory.py` 进行跨平台盘点。
-- 使用 `.agents/skills/system-sync/scripts/validate_vault.py` 对 Frontmatter、标签、`related`、模板映射、说明文档计数和兼容入口做确定性校验。
-- 涉及卡片数、模板数、技能数、README 数、Base、MOC、附件数时，必须从文件系统计算。
+- 使用 `.agents/skills/system-sync/scripts/validate_vault.py` 对 Frontmatter、标签、`related`、模板映射、Base、Canvas、说明文档计数和兼容入口做确定性校验。
+- 旧版编号目录迁移使用 `.agents/scripts/migrate-vault-layout.ps1`；先 `-DryRun`，确认无冲突后再 `-Apply`。
+- 涉及卡片数、模板数、技能数、README 数、Base、Canvas、MOC、附件数时，必须从文件系统计算。
 - 需要说明统计口径。
 - 当前目录不是 Git 仓库时继续盘点，不把缺少 Git 元数据当作失败。
 
 可能写入：
 
-- `00_System/Vault_Map.md`
-- `00_System/Writing_Rules.md`
-- `00_System/Naming_Conventions.md`
+- `System/Vault_Map.md`
+- `System/Writing_Rules.md`
+- `System/Naming_Conventions.md`
 - `agent.md`
 - `README.md`
 - 目录级 `README.md`
@@ -752,9 +777,9 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 
 - 用户提供的原文、文件或摘录
 - `.agents/skills/knowledge-system/references/` 下的方法论文档
-- `04_Knowledge/00_Cards/`、`04_Knowledge/01_Topics/` 已有内容
+- `03_Knowledge/00_Cards/`、`03_Knowledge/01_Topics/` 已有内容
 
-写回规则：默认只读分析。用户明确「请写入 / 请记录」后，写入 `model` 卡片、`01_Topics/` 主题或 `03_Projects/` 项目。写入后追加一条到 `04_Knowledge/CHANGELOG.md`。
+写回规则：默认只读分析。用户明确「请写入 / 请记录」后，写入 `model` 卡片、`01_Topics/` 主题或 `02_Projects/` 项目。写入后追加一条到 `03_Knowledge/CHANGELOG.md`。
 
 批量处理：一次多个来源时，先读全部 → 跨来源去重 → 一次搜索查重 → 一次建卡 → 最后统一更新索引和日志。
 
@@ -786,7 +811,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 
 ### 剪藏消化流
 
-1. 用 Obsidian Web Clipper 将文章保存到 `05_References/01_Inbox/`。
+1. 用 Obsidian Web Clipper 将文章保存到 `04_References/01_Inbox/`。
 2. `digest`：选择一篇剪藏，完成分析、判断和关联检查。
 3. 确认后创建卡片、更新项目决定或形成行动。
 4. 决定原文移入 Library、暂留 Inbox 或删除。
@@ -818,7 +843,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 - 技能名称和触发词是否变化。
 - 读取路径和写回路径是否变化。
 - 是否出现新的组合工作流。
-- 是否需要同步 `00_System/Vault_Map.md` 或根目录 `README.md`。
+- 是否需要同步 `System/Vault_Map.md` 或根目录 `README.md`。
 
 推荐命令：
 

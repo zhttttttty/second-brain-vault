@@ -80,9 +80,9 @@ def topics_readme(text: str) -> str:
 
 def main() -> None:
     update("README.md", root_readme)
-    update("03_Projects/README.md", projects_readme)
-    update("04_Knowledge/00_Cards/README.md", cards_readme)
-    update("04_Knowledge/01_Topics/README.md", topics_readme)
+    update("02_Projects/README.md", projects_readme)
+    update("03_Knowledge/00_Cards/README.md", cards_readme)
+    update("03_Knowledge/01_Topics/README.md", topics_readme)
 
 
 if __name__ == "__main__":

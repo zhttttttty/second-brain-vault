@@ -1,0 +1,52 @@
+---
+description: File and folder naming conventions
+type: system
+tags: [知识管理/Obsidian]
+---
+# Naming Conventions
+
+## 通用规则
+- 文件名尽量简洁、明确、可长期使用
+- 同类文件保持统一格式
+- 优先英文命名，必要时可中英结合，但同一层级保持一致
+- 避免随意缩写
+
+## 根目录分层
+
+- 编号目录仅用于工作内容生命周期，固定为 `01_Daily/`、`02_Projects/`、`03_Knowledge/`、`04_References/`、`05_Tasks/`、`06_Archive/`
+- 支撑目录不编号，使用稳定的 PascalCase 名称：`Context/`、`System/`、`Bases/`、`Templates/`、`Attachments/`
+- 不为了“分类更细”新增根目录；先判断内容是否可落入现有生命周期或支撑目录
+- `Context/` 无编号表示不参与内容排序，不表示永不更新；`Current_Priorities.md` 可随阶段调整
+- 模板统一进入 `Templates/`，不要在内容目录重新创建 `.templates/`
+
+## 日期文件
+- 格式：`YYYY-MM-DD.md`
+
+## 项目文件夹
+- 使用稳定名称（一旦建好少改动，避免链接失效）
+- 示例：
+  - `MyBook_Project`
+  - `AI_Research_Course`
+  - `Blog_Writing`
+
+## 项目内部标准文件
+- `Project.md` — 项目的唯一入口，集中保存定义、完成标准、任务、进展和决策
+- `Outputs/` — 有真实产出时才创建；子目录按内容增长情况拆分
+
+## 任务文件
+- `Inbox.md` — 尚未分类的新任务入口
+- `Tasks.md` — 不属于具体项目的长期任务
+
+## 长期主题知识文件
+- 文件名应该描述主题本身，而不是某次聊天
+- 示例：
+  - `Core_Principles.md`
+  - `Obsidian_x_AI_Workflow.md`
+  - `Learning_Product_Design.md`
+
+## Obsidian Base
+
+- 使用 `.base` 扩展名
+- 文件名使用 PascalCase，例如 `Books.base`、`Persons.base`
+- 全库视角的 Base 放在 `Bases/`
+- 领域专用的 Base 可放在对应主题或项目目录

@@ -39,7 +39,7 @@ If `AGENTS.md` specifies more precise instructions, follow it.
 
 ### Core context
 Read the most relevant files in:
-- `01_Context/`
+- `Context/`
 
 Prefer:
 - `About_Me.md`
@@ -47,17 +47,17 @@ Prefer:
 
 ### Recent continuity
 Read the most recent 7 files in:
-- `02_Daily/`
+- `01_Daily/`
 
 If fewer than 7 exist, read what is available.
 
 ### Current tasks
 Read if present:
-- `06_Tasks/Tasks.md`
-- `06_Tasks/Inbox.md`
+- `05_Tasks/Tasks.md`
+- `05_Tasks/Inbox.md`
 
 ### Active projects
-Scan `03_Projects/` for likely active projects.
+Scan `02_Projects/` for likely active projects.
 For each relevant active project, read `Project.md`, especially its current status, next actions, backlog, progress, and decisions.
 
 Do not scan archived or irrelevant material unless needed.

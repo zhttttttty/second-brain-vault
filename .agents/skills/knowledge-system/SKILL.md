@@ -84,11 +84,11 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 
 额外的质量约定：
 
-- `tags` 只放 `00_System/Vault_Schema.md` 已登记的 1～3 个稳定主题；类型、来源、状态和一次性关键词不用标签表达
+- `tags` 只放 `System/Vault_Schema.md` 已登记的 1～3 个稳定主题；类型、来源、状态和一次性关键词不用标签表达
 - 证据充分程度用 `confidence`（high/medium/low）标注；有未解决矛盾设 `contested: true` 并填 `contradictions`
-- 综合 3+ 来源的卡片，在段落末尾用 `^[来源]` 逐段溯源，让读者不必重读原文就能追溯每条主张
+- 综合 3+ 来源的卡片，在段落末尾使用命名脚注（如 `[^graham]`），并在脚注定义中放入 `[[来源笔记]]` 或 `[原文](URL)`；不要用无法点击且含义模糊的 `^[来源]`
 
-4 要素到 Obsidian 卡片的映射详见 `00_System/Knowledge_Workflow.md`。存储细节读取 `references/knowledge-storage.md`。
+4 要素到 Obsidian 卡片的映射详见 `System/Knowledge_Workflow.md`。存储细节读取 `references/knowledge-storage.md`。
 
 ### 4. 组装体系（Step 5）
 
@@ -119,16 +119,16 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 
 ### 6. 落库与写回
 
-- 模型/观点 → `04_Knowledge/00_Cards/` 的 `model` 或 `insight` / `mentalmodel` 卡片
-- 领域综合理解 → `04_Knowledge/01_Topics/` 主题地图
-- 有完成标准的学习 → `03_Projects/`
+- 模型/观点 → `03_Knowledge/00_Cards/` 的 `model` 或 `insight` / `mentalmodel` 卡片
+- 领域综合理解 → `03_Knowledge/01_Topics/` 主题地图
+- 有完成标准的学习 → `02_Projects/`
 - AI 可执行流程 → `.agents/skills/`
 
-落库前先定向：读 `00_System/Vault_Schema.md`（标签分类法 + 建卡门槛）→ 相关 MOC/主题地图 → 最近 `04_Knowledge/CHANGELOG.md`。这能避免重复建卡、违反标签约定、重复已做的工作。
+落库前先定向：读 `System/Vault_Schema.md`（标签分类法 + 建卡门槛）→ 相关 MOC/主题地图 → 最近 `03_Knowledge/CHANGELOG.md`。这能避免重复建卡、违反标签约定、重复已做的工作。
 
 遵循 `agent.md` 的写回规则：默认只读分析，用户明确「请写入 / 请记录」后再落库。
 
-**写入后必须追加一条到 `04_Knowledge/CHANGELOG.md`**，格式：`日期 | 类型 | 内容 | 关联`，最新在上。
+**写入后必须追加一条到 `03_Knowledge/CHANGELOG.md`**，格式：`日期 | 类型 | 内容 | 关联`，最新在上。
 
 ### 7. 批量处理（Bulk Ingest）
 

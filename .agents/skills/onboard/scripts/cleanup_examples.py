@@ -11,22 +11,22 @@ from pathlib import Path
 
 
 EXAMPLE_ROOTS = (
-    Path("02_Daily"),
-    Path("04_Knowledge/00_Cards"),
-    Path("04_Knowledge/01_Topics"),
-    Path("05_References/01_Inbox"),
+    Path("01_Daily"),
+    Path("03_Knowledge/00_Cards"),
+    Path("03_Knowledge/01_Topics"),
+    Path("04_References/01_Inbox"),
 )
 README_CANDIDATES = (
     Path("README.md"),
-    Path("03_Projects/README.md"),
-    Path("04_Knowledge/00_Cards/README.md"),
-    Path("04_Knowledge/01_Topics/README.md"),
+    Path("02_Projects/README.md"),
+    Path("03_Knowledge/00_Cards/README.md"),
+    Path("03_Knowledge/01_Topics/README.md"),
 )
-PROJECT_EXAMPLE = Path("03_Projects/_Example_Project")
+PROJECT_EXAMPLE = Path("02_Projects/_Example_Project")
 
 
 def ensure_vault_root(root: Path) -> None:
-    required = (root / "agent.md", root / "04_Knowledge/00_Cards/.templates")
+    required = (root / "agent.md", root / "Templates/Cards")
     if not all(path.exists() for path in required):
         raise SystemExit("Error: run this helper from the Vault root directory.")
 

@@ -57,7 +57,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 3. 选择 `my-brain/` 文件夹
 4. Obsidian 会读取 `.obsidian/` 里的配置并打开 Vault
 
-模板已配置：今日笔记创建到 `02_Daily/`，使用 `02_Daily/.templates/Daily_Note.md`；粘贴附件进入当前笔记目录下的 `Attachments/`。
+模板已配置：今日笔记创建到 `01_Daily/`，使用 `Templates/Daily_Note.md`；粘贴附件进入当前笔记目录下的 `Attachments/`。
 
 第一次打开可能提示"Trust author and enable plugins?"，可以**先选 No**（后面再决定是否启用第三方插件）。
 
@@ -91,7 +91,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 
 这是**最重要的一步**。花约 10 分钟填写，AI 才能结合你的真实情况协作。
 
-编辑 `01_Context/` 下这 2 个文件：
+编辑 `Context/` 下这 2 个文件：
 
 | 文件 | 填什么 |
 |---|---|
@@ -119,8 +119,8 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 它会自动：
 
 1. 识别卡片类型（insight）
-2. 读取 `04_Knowledge/00_Cards/.templates/Insight_Card.md`
-3. 填充内容并保存到 `04_Knowledge/00_Cards/`
+2. 读取 `Templates/Cards/Insight_Card.md`
+3. 填充内容并保存到 `03_Knowledge/00_Cards/`
 
 > **先少后多**：23 种模板是能力上限，不是待完成清单。最初只用 `insight`、`term`、`model`、`book` / `book-note` 和 `resource` / `tool` 即可；出现稳定需求后再启用专用类型。
 
@@ -138,7 +138,7 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 /session-brief
 ```
 
-AI 会读取 `AGENTS.md` / `agent.md` → `01_Context/` → 最近的 Daily Notes → 当前任务，然后给你一份「当前状态摘要」。
+AI 会读取 `AGENTS.md` / `agent.md` → `Context/` → 最近的 Daily Notes → 当前任务，然后给你一份「当前状态摘要」。
 
 这也是每次开新会话时推荐的第一步。
 
@@ -148,7 +148,7 @@ AI 会读取 `AGENTS.md` / `agent.md` → `01_Context/` → 最近的 Daily Note
 /today
 ```
 
-AI 会基于你填好的 `Current_Priorities.md` + `06_Tasks/Tasks.md` + `06_Tasks/Inbox.md` + `03_Projects/*/Project.md`，生成一份今日聚焦计划。
+AI 会基于你填好的 `Current_Priorities.md` + `05_Tasks/Tasks.md` + `05_Tasks/Inbox.md` + `02_Projects/*/Project.md`，生成一份今日聚焦计划。
 
 ---
 
@@ -170,7 +170,7 @@ AI 会基于你填好的 `Current_Priorities.md` + `06_Tasks/Tasks.md` + `06_Tas
 
 ### Obsidian 找不到我刚创建的卡片？
 
-- 检查文件是否在 `04_Knowledge/00_Cards/` 根目录（不要在 `.templates/` 里）
+- 检查文件是否在 `03_Knowledge/00_Cards/` 根目录（不要误放进 `Templates/Cards/`）
 - 尝试 `Cmd+P` → "Reload app without saving"
 
 ### Skill 不生效？

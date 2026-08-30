@@ -1,0 +1,30 @@
+filters:
+  and:
+    - 'file.inFolder("03_Knowledge/00_Cards")'
+    - 'type == "card"'
+    - 'card_type == "resource"'
+
+properties:
+  title:
+    displayName: "名称"
+  resource_type:
+    displayName: "类型"
+  url:
+    displayName: "链接"
+  tags:
+    displayName: "主题"
+  source:
+    displayName: "来源"
+  created:
+    displayName: "创建日期"
+
+views:
+  - type: table
+    name: "资源列表"
+    order:
+      - title
+      - resource_type
+      - url
+      - tags
+      - created
+      - source
