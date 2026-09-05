@@ -2,7 +2,7 @@
 description: 领域范围、主题标签分类法、建卡门槛与质量信号约定
 type: system
 tags: [知识管理/Obsidian, 知识管理/方法论]
-updated: 2026-08-29
+updated: 2026-09-05
 ---
 # Vault Schema
 
@@ -105,9 +105,25 @@ card_type: insight         # 仅知识卡片使用
 tags:
   - 知识管理/Obsidian      # 1～3 个稳定主题；无明确主题时可 []
 source: https://example.com
+use_when:                   # 可选；1～3 个具体调用场景，不作为主题标签
+  - 做相关决策前
 status: active             # 仅确有状态管理需求时使用
 ---
 ```
+
+### 调用场景（可选）
+
+`use_when` 用于记录“什么时候应该调用这条知识”，适合 `insight`、`model`、`mentalmodel`、`checklist`、`tip` 和 `prompt` 等可复用内容：
+
+```yaml
+use_when:
+  - 客户谈判前
+  - 制定项目里程碑时
+```
+
+- 每张卡片通常填写 1～3 个具体场景；无法明确时可以省略或留待后续补充。
+- `use_when` 是检索线索，不是主题分类，因此不得写入 `tags`。
+- 场景应描述触发时刻、问题或行动，避免“学习”“工作”等过宽词语。
 
 ### 旧标签迁移
 
@@ -145,6 +161,9 @@ contradictions: [other-card-slug]
 
 ## 内容索引与变更日志
 
-- **全库索引**：主题地图 `03_Knowledge/01_Topics/` + MOC 卡片
-- **变更日志**：`03_Knowledge/CHANGELOG.md` — 记录新增/更新/归档知识，以及影响全库行为的系统规则变更；普通 Daily 与任务勾选不逐条记录
-- **会话定向**：新会话先读本文件 → 索引/主题地图 → 最近变更日志（见 `AGENTS.md`）
+- **知识内容索引**：`03_Knowledge/INDEX.md` — 列出正式 Topic 与核心卡片的一句话用途、来源数和更新时间
+- **主题综合**：`03_Knowledge/01_Topics/` + MOC 卡片 — 保存领域地图与阶段性理解
+- **操作与变更日志**：`03_Knowledge/CHANGELOG.md` — 记录 Ingest、Query 写回、Lint/维护、新增/更新/归档知识，以及影响全库行为的系统变更；普通只读查询、Daily 与任务勾选不记录
+- **会话定向**：新会话先读本文件 → INDEX → 相关主题地图 → 最近变更日志（见 `AGENTS.md`）
+
+正式知识页面发生新增、实质更新或归档时，必须同步 INDEX；没有文件写回的普通查询不更新 INDEX 或 CHANGELOG。

@@ -60,6 +60,9 @@ without inventing a frontmatter field.
 Use `待补充` or an empty optional value for genuinely unknown information; leave
 no literal `{{...}}` placeholders in the completed card. Read
 `references/writing-rules.md` when filling frontmatter, filenames, or links.
+When the selected template contains `use_when`, fill it with 1–3 concrete
+retrieval moments only when they can be inferred from the approved content;
+otherwise use an empty list rather than inventing a scenario.
 Use `tags` only for 1–3 stable subject tags registered in
 `System/Vault_Schema.md`; never repeat `type`, `card_type`, source, status,
 people, dates, or filenames as tags. If no subject tag clearly applies, use an
@@ -91,8 +94,9 @@ Vault naming rules. If that exact filename already exists, show the collision
 and obtain confirmation before replacing or choosing a new name.
 
 Write the card to `03_Knowledge/00_Cards/`, parse its frontmatter, verify its
-template and links, append one concise entry to `03_Knowledge/CHANGELOG.md`, and
-report the final paths.
+template and links, add or update its one-line entry in
+`03_Knowledge/INDEX.md`, append one concise entry to
+`03_Knowledge/CHANGELOG.md`, and report the final paths.
 
 **Completion:** The new file exists at the approved path, its frontmatter
 parses, and the reported card matches the selected type and approved scope.

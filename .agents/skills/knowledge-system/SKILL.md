@@ -124,11 +124,11 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 - 有完成标准的学习 → `02_Projects/`
 - AI 可执行流程 → `.agents/skills/`
 
-落库前先定向：读 `System/Vault_Schema.md`（标签分类法 + 建卡门槛）→ 相关 MOC/主题地图 → 最近 `03_Knowledge/CHANGELOG.md`。这能避免重复建卡、违反标签约定、重复已做的工作。
+落库前先定向：读 `System/Vault_Schema.md`（标签分类法 + 建卡门槛）→ `03_Knowledge/INDEX.md` → 相关 MOC/主题地图 → 最近 `03_Knowledge/CHANGELOG.md`。这能避免重复建卡、违反标签约定、重复已做的工作。
 
 遵循 `AGENTS.md` 的写回规则：默认只读分析，用户明确「请写入 / 请记录」后再落库。
 
-**写入后必须追加一条到 `03_Knowledge/CHANGELOG.md`**，格式：`日期 | 类型 | 内容 | 关联`，最新在上。
+**写入后必须更新 `03_Knowledge/INDEX.md` 并追加一条到 `03_Knowledge/CHANGELOG.md`**，格式：``- `类型` | 内容 | 关联``，最新日期在上。
 
 ### 7. 批量处理（Bulk Ingest）
 
@@ -138,7 +138,7 @@ description: 用「1 小时构建知识体系」六步法，把零散信息提�
 2. 跨来源识别所有实体/概念，做一次去重
 3. 对每个实体做一次搜索，检查是否已有卡片（一次搜索，不是 N 次）
 4. 一次性创建/更新所有卡片
-5. 最后统一更新 MOC/主题地图，写一条汇总的 CHANGELOG 记录
+5. 最后统一更新 MOC/主题地图与 INDEX，写一条汇总的 CHANGELOG 记录
 
 ## References
 

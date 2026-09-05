@@ -16,6 +16,7 @@ description: Capture one public web page as clean Markdown in the Obsidian Inbox
 - 不下载网页图片，不伪造作者、发布日期或缺失元数据。
 - 默认只预览；写入前必须得到用户确认，脚本也必须显式传入 `--write`。
 - 不覆盖同名文件。公开仓库不保存未经授权的完整受版权保护文章。
+- 写入后的剪藏正文作为来源证据保留；后续摘要与观点写到知识层，不回头改写来源正文。
 
 ## 工作流
 

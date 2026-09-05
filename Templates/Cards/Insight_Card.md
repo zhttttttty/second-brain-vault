@@ -4,6 +4,8 @@ card_type: insight
 tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己思考/某篇文章/某次对话}}"
+use_when:
+  - "{{什么时候会调用这个观点}}"
 related: []
 ---
 

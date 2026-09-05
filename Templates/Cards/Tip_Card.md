@@ -4,6 +4,8 @@ card_type: tip
 tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己摸索/文档/视频/他人分享}}"
+use_when:
+  - "{{什么时候会调用这个技巧}}"
 related: []
 ---
 

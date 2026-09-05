@@ -12,8 +12,8 @@
 当前示例库包括：
 
 - **23 种标准化卡片模板**，覆盖观点、模型、概念、人物、工具、书籍、论文等常见知识对象
-- **18 个 Vault 工作流 Skills**，覆盖初始化、计划、阅读、提炼、思考、复习与系统维护
-- **9 张示例知识卡片**，用于展示属性、标签、链接、溯源和质量信号
+- **19 个 Vault 工作流 Skills**，覆盖初始化、计划、阅读、持续知识整合、思考、复习与系统维护
+- **10 张示例知识卡片**，用于展示属性、标签、链接、溯源、质量信号和调用场景
 - **5 个 Obsidian Bases 视图**，用于查看卡片、书籍、人物、资源与复习队列
 - **2 个 Canvas**，用于说明库架构和知识体系工作流
 - Daily、Project 与 Card 模板，以及可重复执行的迁移和校验脚本
@@ -49,7 +49,14 @@
 - `Context/`：个人背景、偏好和当前 1～3 个月重点
 - `System/`：Schema、命名、写作、任务与工作流规则
 - 内容目录：只保存实际工作和知识资产
+- `03_Knowledge/INDEX.md`：提供知识内容入口
 - `03_Knowledge/CHANGELOG.md`：记录知识系统的重要演化
+
+### 4. LLM Wiki 持续积累
+
+外部来源不会只停留在检索层。`llm-wiki` 会先从 `03_Knowledge/INDEX.md` 定位已有知识，比较新旧来源，然后在用户确认后更新相关卡片、Topic、交叉链接、INDEX 和 CHANGELOG。知识查询产生可复用的新综合时，也可以走同一条写回路径。
+
+来源正文留在 `04_References/` 作为证据层，捕获后不被知识整理流程改写；新的解释和判断写入知识层。
 
 ## 目录结构
 
@@ -58,9 +65,10 @@ second-brain-vault/
 ├── 01_Daily/                       # 每日记录
 ├── 02_Projects/                    # 有目标、期限或完成标准的项目
 ├── 03_Knowledge/
-│   ├── 00_Cards/                   # 正式卡片区；模板库附带 9 张示例
+│   ├── 00_Cards/                   # 正式卡片区；模板库附带 10 张示例
 │   ├── 01_Topics/                  # 主题地图、MOC 与综合理解
-│   └── CHANGELOG.md                # 知识系统演化记录
+│   ├── INDEX.md                     # 知识内容统一入口
+│   └── CHANGELOG.md                # Ingest、Query 写回与维护记录
 ├── 04_References/
 │   ├── 01_Inbox/                   # 尚未消化的外部资料
 │   └── 02_Library/                 # 已消化且值得保留的原文
@@ -105,6 +113,21 @@ second-brain-vault/
 
 单一、可复用的概念或观点进入原子卡片；跨多张卡片的长期综合理解进入 Topic/MOC；有目标和完成标准的学习进入 Project。`knowledge-system` Skill 提供从零散材料到模型、关系、体系和可追溯卡片的六步流程。
 
+### LLM Wiki 闭环
+
+```text
+来源 → capture-web / digest → llm-wiki Ingest
+                              ├─ 更新已有页面
+                              ├─ 更新 Topic 综合理解
+                              ├─ 维护 INDEX
+                              └─ 记录 CHANGELOG
+
+问题 → INDEX → 聚焦检索 → 带依据回答
+                         └─ 有长期价值且确认 → 写回 Wiki
+```
+
+这样既保留当前库的 Daily / Project / Task 能力，又让知识层具备持续复利机制。
+
 建卡门槛、质量信号、来源规范和卡片类型映射分别见：
 
 - [`System/Vault_Schema.md`](System/Vault_Schema.md)
@@ -122,7 +145,7 @@ second-brain-vault/
 2. **在 Obsidian 中打开仓库根目录**，确认 Daily Notes 的目录为 `01_Daily`、模板目录为 `Templates`。
 3. **填写个人上下文**：编辑 `Context/About_Me.md` 和 `Context/Current_Priorities.md`。
 4. **初始化模板**：让兼容的 Agent 执行 `onboard`，按需清理 `_EXAMPLE_*` 示例并完成首次检查。
-5. **开始工作**：创建当天 Daily Note，或从 `today`、`capture-web`、`digest`、`card-creator` 中选择一个真实流程。
+5. **开始工作**：创建当天 Daily Note，或从 `today`、`capture-web`、`digest`、`llm-wiki`、`card-creator` 中选择一个真实流程。
 
 完整说明见 [`QUICK_START.md`](QUICK_START.md)。首次接入 AI 工具时，请先确认它能读取 `AGENTS.md`，并支持所需的 Skills 协议。
 
@@ -141,14 +164,14 @@ second-brain-vault/
 
 ## AI Skills
 
-Vault 内置的 18 个 Skills 按工作阶段分组如下：
+Vault 内置的 19 个 Skills 按工作阶段分组如下：
 
 | 阶段 | Skills | 主要用途 |
 | --- | --- | --- |
 | 初始化与定向 | `onboard`、`session-brief` | 初始化模板、恢复当前工作上下文 |
 | 计划与回顾 | `today`、`closeday`、`weekly-review` | 今日计划、每日收尾、每周复盘 |
 | 输入与阅读 | `capture-web`、`digest`、`reading-coach` | 网页剪藏、Inbox 消化、主动阅读 |
-| 知识创建 | `card-creator`、`knowledge-system` | 创建原子卡片、搭建可追溯知识体系 |
+| 知识创建与积累 | `card-creator`、`knowledge-system`、`llm-wiki` | 创建原子卡片、搭建知识体系、持续整合来源与查询结果 |
 | 思考与连接 | `brain-storming`、`random-thinking`、`connect`、`trace`、`critical-check` | 发散、随机探索、连接、追踪与批判性校验 |
 | 复习与维护 | `spaced-review`、`check-health`、`system-sync` | 间隔复习、健康检查、文档和结构同步 |
 
@@ -182,6 +205,7 @@ Vault 内置的 18 个 Skills 按工作阶段分组如下：
 | `System/Naming_Conventions.md` | 文件和目录命名规范 |
 | `System/Task_Management_Rules.md` | 项目任务、独立任务和 Daily 的边界 |
 | `03_Knowledge/CHANGELOG.md` | 知识结构和方法论的重要变更 |
+| `03_Knowledge/INDEX.md` | Topic 与核心卡片的内容入口 |
 
 未经整理的聊天原文不应直接进入正式知识区。外部事实、时效信息和高风险判断仍需核对可靠来源；AI 行为契约不能替代事实验证、文件权限、备份和版本控制。
 

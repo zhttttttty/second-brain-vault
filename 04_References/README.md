@@ -2,11 +2,15 @@
 description: 外部剪藏的收集、消化与精选原文保留流程
 type: system
 created: 2026-04-23
-updated: 2026-08-30
+updated: 2026-08-31
 tags: [知识管理/研究, 知识管理/做笔记]
 ---
 
 # References
+
+## 来源保护原则
+
+`04_References/` 是证据层。网页或文件被捕获后，AI 不改写其正文来迎合后续结论；摘要、质疑、修订与综合理解写入 `03_Knowledge/`。来源文件的移动或删除仍按下述流程由用户单独确认。
 
 ## 目录结构
 
@@ -39,6 +43,8 @@ tags: [知识管理/研究, 知识管理/做笔记]
                    ├─ 是 → Library
                    └─ 否 → 删除
 ```
+
+当用户明确要求把来源“纳入 Wiki”时，使用 `llm-wiki`：它会比较已有知识，更新相关卡片与 Topic，并同步维护 `03_Knowledge/INDEX.md` 和 `03_Knowledge/CHANGELOG.md`。
 
 ## Library 收录标准
 

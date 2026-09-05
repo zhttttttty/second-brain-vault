@@ -1,0 +1,3 @@
+interface:
+  display_name: "LLM Wiki"
+  short_description: "持续整合来源并沉淀知识查询结果"

@@ -2,14 +2,14 @@
 description: 本地 AI 技能说明手册
 type: system
 tags: [知识管理/Obsidian, 技术/Agent]
-updated: 2026-08-30
+updated: 2026-09-05
 ---
 # Skills Manual
 
 这份手册说明当前 Vault 自带的本地技能，帮助你知道在什么场景下可以直接对 AI 说什么，以及每个技能会读取哪些内容、产生什么结果、是否会写回知识库。
 
 当前统计口径：按 `.agents/skills/*/SKILL.md` 统计。
-当前本地技能数量：18 个。
+当前本地技能数量：19 个。
 
 ---
 
@@ -25,6 +25,8 @@ updated: 2026-08-30
 - “帮我生成今天的计划”
 - “做一个周回顾”
 - “把这段内容创建成知识卡片”
+- “把这些来源整合进 Wiki”
+- “根据知识库回答这个问题，并把有价值的结论沉淀下来”
 - “检查知识库健康”
 - “连接一下 Learning OS 和 Obsidian”
 - “追踪一下这个主题是怎么演变的”
@@ -53,6 +55,7 @@ updated: 2026-08-30
 | `weekly-review` | 做周回顾、总结本周进展 | 先只读，确认后写入 | 本周 Daily Notes, 项目主页, `05_Tasks/` | `01_Daily/Week_YYYY-Www.md` |
 | `capture-web` | 将一个公开网页提取为干净 Markdown | 默认预览，确认后写入 | 用户 URL、网页正文 | `04_References/01_Inbox/` |
 | `digest` | 将单篇 Inbox 剪藏转化为知识、决定或行动，并处理原文 | 先分析，分阶段确认后写入或处置 | `04_References/01_Inbox/`, 相关卡片、Topic、项目 | 卡片 / 项目 / 任务 / `04_References/02_Library/` |
+| `llm-wiki` | 持续整合来源，或基于 Vault 回答并沉淀可复用综合 | 默认只读，确认后跨页写回 | `INDEX.md`、相关卡片、Topic、References、Projects | 卡片 / Topic / `INDEX.md` / `CHANGELOG.md` |
 | `knowledge-system` | 用六步法提炼模型、按关系组体系、存储可追溯知识 | 先只读，确认后写入 | 用户输入、`.agents/skills/knowledge-system/references/`、已有卡片 | `model` 卡片 / `01_Topics/` 主题 / `02_Projects/` |
 | `reading-coach` | 主动阅读、理解、质疑、内化并行动 | 按阅读阶段互动，明确要求后写入 | 用户提供的书籍、文章、论文、课程材料或笔记 | ACTOR 学习笔记 / 知识卡片 |
 | `card-creator` | 创建原子化知识卡片 | 写入 | 用户输入、卡片模板、已有卡片 | `03_Knowledge/00_Cards/` |
@@ -108,6 +111,7 @@ updated: 2026-08-30
 如果你有一段想法、摘录、概念或资源：
 
 - 用 `digest` 完整处理一篇 Inbox 剪藏，从判断价值到形成知识、决定或行动，再决定原文去向。
+- 用 `llm-wiki` 把一个或多个来源与已有知识比较，更新卡片、Topic、索引和操作日志。
 - 用 `reading-coach` 在阅读前明确使命，在阅读中压缩和质疑，在阅读后检索、内化并行动。
 - 用 `card-creator` 创建原子化知识卡片。
 - 如果一段内容包含多个独立观点，技能会先建议拆分。
@@ -117,6 +121,14 @@ updated: 2026-08-30
 
 ```text
 /digest
+```
+
+```text
+把这三篇来源整合进我的 Wiki，优先更新已有页面。
+```
+
+```text
+根据我的知识库比较 A 和 B；如果产生可复用的新结论，先给出写回方案。
 ```
 
 ```text
@@ -368,7 +380,7 @@ updated: 2026-08-30
 
 1. 选择并读取一篇 Inbox 剪藏；如果输入是网页 URL，先交给 `capture-web` 预览并确认捕获。
 2. 必要时询问用户这篇内容要服务什么问题。
-3. AI 自动提炼主张、证据、边界，并查找相关卡片、Topic 和项目。
+3. AI 自动提炼主张、证据、边界和未来调用场景，区分通用知识与个人经验、一手证据、独特判断，并查找相关卡片、Topic 和项目。
 4. 提出最小产出方案，由用户确认后再创建卡片、更新项目或记录行动。
 5. 根据 Library 标准建议原文暂留、移入 Library 或删除。
 6. 原文删除必须单独确认精确文件，不会随建卡确认自动执行。
@@ -387,6 +399,37 @@ AI 负责：
 - 把决定和行动路由到正确位置。
 
 注意：消化不等于必须创建卡片。“确认没有长期价值”也是有效结果。`digest` 负责完整剪藏流程；需要更深入的主动学习时使用 `reading-coach`，已经明确要建什么卡片时直接使用 `card-creator`。
+
+---
+
+### `llm-wiki`
+
+用途：把新来源“编译”进持续维护的知识层，或基于 Vault 回答问题，并在用户确认后把可复用的新综合写回。
+
+适合在这些时候使用：
+
+- 希望一篇或多篇来源不仅被保存，还能更新已有卡片和 Topic。
+- 希望根据知识库完成比较、连接、综合或阶段性判断。
+- 希望重要查询结果不消失在聊天记录里。
+
+Ingest 流程：
+
+1. 读取 `System/Vault_Schema.md`、`03_Knowledge/INDEX.md`、相关 Topic 和最近 CHANGELOG。
+2. 比较新来源与已有知识，识别重复、补充、矛盾和空白。
+3. 说明内容未来服务的判断、行动或创作场景，展示准备创建、更新和链接的页面范围。
+4. 用户确认后，优先更新已有页面，必要时创建新卡片，并为适用卡片填写 `use_when`、更新 Topic 当前理解。
+5. 同步维护 INDEX 和 CHANGELOG，再验证 Frontmatter、链接与来源。
+
+Query 流程：
+
+1. 先读 INDEX，再聚焦搜索卡片、Topic、References、Projects 和必要的 Daily Notes。
+2. 使用内部 Wikilink 和来源 URL 支撑回答，区分已有知识、AI 推断和证据缺口。
+3. 若答案形成稳定的新比较、框架或综合，提出最小写回方案。
+4. 用户确认后才写回，并同步 INDEX 与 CHANGELOG。
+
+来源边界：`04_References/` 中已捕获的正文是证据层，知识整理过程不改写正文；移动或删除来源需要单独确认。
+
+与其他技能的分工：URL 捕获用 `capture-web`，单篇价值判断用 `digest`，明确的一张卡片用 `card-creator`，六步法模型提炼用 `knowledge-system`，健康检查用 `check-health`。
 
 ---
 
@@ -465,6 +508,7 @@ AI 负责：
 - 写入 `03_Knowledge/00_Cards/`。
 - 尽量建立有意义的 `related` 链接，避免过度链接。
 - `tags` 只使用 `System/Vault_Schema.md` 已登记的 1～3 个主题标签；类型、来源与状态使用 Properties。
+- 支持的模板可用 `use_when` 保存 1～3 个具体调用时机；它不会混入主题标签。
 - 写入完成后同步更新 `03_Knowledge/CHANGELOG.md`。
 
 注意：一张卡片只讲一件事。如果输入包含多个独立主题，优先拆分。
@@ -803,17 +847,19 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 
 ### 主题研究流
 
-1. `trace`：追踪主题历史。
-2. `connect`：寻找与另一个主题的连接。
-3. `brain-storming`：发散新角度。
-4. `card-creator`：把最终洞察沉淀为卡片。
+1. `llm-wiki` Query：从 INDEX 定位知识并完成带依据的综合。
+2. `trace`：追踪主题历史。
+3. `connect`：寻找与另一个主题的连接。
+4. `brain-storming`：发散新角度。
+5. 用户确认后，用 `llm-wiki` 或 `card-creator` 沉淀最终结果。
 
 ### 剪藏消化流
 
-1. 用 Obsidian Web Clipper 将文章保存到 `04_References/01_Inbox/`。
+1. 用 `capture-web` 或 Obsidian Web Clipper 将文章保存到 `04_References/01_Inbox/`。
 2. `digest`：选择一篇剪藏，完成分析、判断和关联检查。
-3. 确认后创建卡片、更新项目决定或形成行动。
-4. 决定原文移入 Library、暂留 Inbox 或删除。
+3. 需要进入长期知识层时，交给 `llm-wiki` Ingest 更新已有卡片、Topic 和 INDEX。
+4. 确认后创建卡片、更新项目决定或形成行动。
+5. 决定原文移入 Library、暂留 Inbox 或删除。
 
 ### 知识复习流
 
@@ -829,6 +875,15 @@ python .agents/skills/system-sync/scripts/validate_vault.py --vault .
 3. 用 `card-creator` 把具体观点、术语、人物等拆成原子卡片。
 4. `connect`：检查新模型与已有知识的连接。
 5. 回到 `01_Topics/` 更新主题地图，保持体系关系密度。
+
+### LLM Wiki 持续积累流
+
+1. `capture-web`：捕获来源，不改写证据正文。
+2. `digest`：判断来源价值、目的和最终去向。
+3. `llm-wiki` Ingest：跨来源查重，更新卡片、Topic、INDEX 和 CHANGELOG。
+4. `llm-wiki` Query：从 INDEX 开始回答问题，保留内部与外部依据。
+5. 对可复用的新综合，用户确认后写回 Wiki。
+6. 定期用 `check-health` 做 Lint，用 `system-sync` 校验系统说明。
 
 ---
 

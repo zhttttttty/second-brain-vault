@@ -86,14 +86,18 @@ If the purpose is already explicit, restate it briefly and continue.
 Without asking the user to provide additional prompts:
 
 1. Identify the central claim and 3–5 load-bearing ideas.
-2. Separate arguments, evidence, cases, quotations, and incidental detail.
-3. Check whether the evidence supports the claims.
-4. Identify assumptions, counterexamples, applicable conditions, and limits.
-5. Search the vault using the title, central concepts, and the user's stated
+2. Ask what future judgment, action, or creation moment would retrieve the
+   material; “none yet” is valid evidence against creating durable knowledge.
+3. Separate generic public knowledge from personal experience, primary
+   evidence, unique judgment, and verified additions to existing knowledge.
+4. Separate arguments, evidence, cases, quotations, and incidental detail.
+5. Check whether the evidence supports the claims.
+6. Identify assumptions, counterexamples, applicable conditions, and limits.
+7. Search the vault using the title, central concepts, and the user's stated
    purpose; open only meaningful project, Topic, and card matches.
-6. Compare the material with the relevant matches and current priorities.
-7. Distinguish genuinely new value from repetition of existing knowledge.
-8. Decide which, if any, durable outcomes the source supports.
+8. Compare the material with the relevant matches and current priorities.
+9. Distinguish genuinely new value from repetition of existing knowledge.
+10. Decide which, if any, durable outcomes the source supports.
 
 Keep quotations minimal, preserve source attribution, and label source claims,
 AI inferences, and user conclusions separately.
@@ -139,7 +143,10 @@ knowledge and action outcome. No source disposition is implied by this approval.
 ### 6. Create only approved outcomes
 
 After approval, read the applicable routing, naming, and writing rules under
-`System/`, then route each outcome to its single authoritative location.
+`System/`, then route each outcome to its single authoritative location. For
+durable knowledge integration, follow the `llm-wiki` Ingest invariants: update
+relevant existing pages and Topic synthesis when justified, then maintain
+`03_Knowledge/INDEX.md` and `03_Knowledge/CHANGELOG.md`.
 Create no artifact when the approved decision is that the source has no durable
 value.
 
@@ -160,7 +167,8 @@ formal task locations.
 
 **Completion:** Every approved artifact exists at its approved destination,
 follows the applicable vault rules, preserves source attribution, and has been
-checked for duplicate formal tasks or cards.
+checked for duplicate formal tasks or cards. Durable knowledge pages are
+discoverable from `03_Knowledge/INDEX.md`.
 
 ### 7. Decide the source's final location
 

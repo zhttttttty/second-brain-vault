@@ -2,6 +2,7 @@
 description: Writing and Markdown conventions for vault content
 type: system
 tags: [创作/写作]
+updated: 2026-09-05
 ---
 # Writing Rules
 
@@ -95,6 +96,18 @@ contradictions: [other-card-slug]  # 与之冲突的卡片
 ```
 
 完整约定见 `System/Vault_Schema.md`。
+
+## 调用场景
+
+对于需要在特定判断或行动中复用的卡片，可以使用 `use_when` 保存 1～3 个简短、具体的调用线索：
+
+```yaml
+use_when:
+  - 客户谈判前
+  - 制定项目里程碑时
+```
+
+详细背景仍写在正文“适用场景”或“使用场景”章节。`use_when` 不属于主题标签，不要把调用时机重复写入 `tags`。
 
 ## 多来源逐段溯源
 

@@ -4,6 +4,8 @@ card_type: prompt
 tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己设计/社区分享/文档/他人分享}}"
+use_when:
+  - "{{什么时候会调用这个提示词}}"
 related: []
 ---
 

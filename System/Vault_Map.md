@@ -2,6 +2,7 @@
 description: Visual map and overview of the vault structure
 type: system
 tags: [知识管理/Obsidian]
+updated: 2026-08-31
 ---
 # Vault Map
 
@@ -74,9 +75,10 @@ AI 的协作流程和写回原则统一维护在根目录 `AGENTS.md`，不在�
   - 默认一个主题对应一个文件，内容增长后再按需升级为目录
   - 通过链接连接卡片、项目和来源，不复制保存原始材料
   - `Knowledge_System_Workflow.canvas` — 六步法从输入、提炼到卡片与主题组装的可视导航
-- `CHANGELOG.md` — 知识库变更日志，每次写入都追加一条
+- `INDEX.md` — 面向内容的统一入口；知识查询先从这里定位 Topic 和卡片
+- `CHANGELOG.md` — Ingest、Query 写回、Lint/维护和系统演化记录
 
-方法论不单设目录：原理进入 `model` 或 `mentalmodel` 卡片，人工步骤进入 `checklist` 卡片，AI 可执行流程进入 `.agents/skills/`。知识体系构建方法已固化为 `.agents/skills/knowledge-system/` 技能。
+方法论不单设目录：原理进入 `model` 或 `mentalmodel` 卡片，人工步骤进入 `checklist` 卡片，AI 可执行流程进入 `.agents/skills/`。知识体系构建方法已固化为 `.agents/skills/knowledge-system/`；来源整合和知识查询写回由 `.agents/skills/llm-wiki/` 维护。
 
 卡片模板中的 frontmatter 占位值保持为合法 YAML；最终卡片必须由 `card-creator` 或人工完整替换占位符后再进入正式卡片目录。
 
@@ -88,7 +90,7 @@ AI 的协作流程和写回原则统一维护在根目录 `AGENTS.md`，不在�
 - `02_Library/` — 已消化且原文本身值得长期保留的精选文章
 
 ### 工作流程
-网页 URL 可先由 `capture-web` 调用 Defuddle 预览，用户确认后写入 Inbox；已有剪藏直接进入 `digest`。完整流程为：捕获 → Inbox → 阅读与判断 → 产生卡片、项目决定或行动 → 原文进入 Library 或删除。主题通过标签和链接表达，不建立分类目录。
+网页 URL 可先由 `capture-web` 调用 Defuddle 预览，用户确认后写入 Inbox；已有剪藏直接进入 `digest`。需要持续整合进知识层时使用 `llm-wiki`：比较已有页面 → 更新卡片与 Topic → 更新 INDEX → 记录 CHANGELOG。来源正文捕获后不改写；原文进入 Library 或删除仍需单独确认。主题通过标签和链接表达，不建立分类目录。
 
 ## 05_Tasks
 全局任务入口与非项目任务管理：

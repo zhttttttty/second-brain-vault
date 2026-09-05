@@ -2,7 +2,7 @@
 title: Knowledge Directory
 description: 长期知识卡片与主题地图
 created: 2026-04-23
-updated: 2026-08-30
+updated: 2026-08-31
 type: system
 tags: [知识管理/Obsidian]
 ---
@@ -16,9 +16,26 @@ tags: [知识管理/Obsidian]
 03_Knowledge/
 ├── 00_Cards/      # 原子化知识卡片
 ├── 01_Topics/     # 长期主题地图
-├── CHANGELOG.md   # 知识系统演化记录
+├── INDEX.md       # 面向内容的统一入口
+├── CHANGELOG.md   # Ingest、Query 写回与维护记录
 └── README.md
 ```
+
+## LLM Wiki 闭环
+
+```text
+外部来源 → 捕获 / 消化 → Ingest
+                         ├─ 更新已有卡片
+                         ├─ 更新 Topic 当前理解
+                         ├─ 维护交叉链接
+                         ├─ 更新 INDEX
+                         └─ 记录 CHANGELOG
+
+知识问题 → 先读 INDEX → 聚焦检索 → 带依据回答
+                                   └─ 有长期价值且用户确认 → 写回 Wiki
+```
+
+`llm-wiki` Skill 负责这个闭环。来源正文保留在 `04_References/`，捕获后不被知识整理流程改写；新的理解和修订进入卡片或 Topic。
 
 ## 00_Cards
 
@@ -51,5 +68,7 @@ Topic 是长期关注领域的知识地图，用于维护主题范围、核心�
 
 ## 相关文档
 
+- [[INDEX|Knowledge Index]] — 内容索引与查询入口
+- [[CHANGELOG]] — Ingest、Query 写回和维护记录
 - [[../System/Vault_Map|Vault Map]] — 整体仓库结构
 - [[../System/Writing_Rules|Writing Rules]] — 写作规范

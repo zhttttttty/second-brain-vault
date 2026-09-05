@@ -4,6 +4,8 @@ card_type: checklist
 tags: ["{{主题标签，如：知识管理/Obsidian}}"]
 created: "{{YYYY-MM-DD}}"
 source: "{{来源：自己整理/书/文章/经验总结}}"
+use_when:
+  - "{{什么时候需要调用这份清单}}"
 related: []
 ---
 

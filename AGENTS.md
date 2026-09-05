@@ -1,7 +1,7 @@
 ---
 description: System configuration for AI assistants working with this vault
-version: 1.2.0
-last_updated: 2026-08-30
+version: 1.3.0
+last_updated: 2026-08-31
 ---
 # AGENTS.md
 
@@ -48,8 +48,9 @@ last_updated: 2026-08-30
 在动手之前，先定向自己，避免重复建卡、违反约定、重复已做工作：
 
 1. 读 `System/Vault_Schema.md` — 领域范围、标签分类法、建卡门槛、质量信号
-2. 读相关主题地图（`03_Knowledge/01_Topics/`）或 MOC — 已有内容的索引
-3. 读最近 `03_Knowledge/CHANGELOG.md` — 最近改了什么
+2. 读 `03_Knowledge/INDEX.md` — 当前知识内容入口
+3. 读相关主题地图（`03_Knowledge/01_Topics/`）或 MOC — 进入相关综合理解
+4. 读最近 `03_Knowledge/CHANGELOG.md` — 最近做过哪些 Ingest、Query 写回或维护
 
 ### 根目录
 - `AGENTS.md` 是总导航文件。执行复杂任务前优先阅读。
@@ -86,8 +87,10 @@ last_updated: 2026-08-30
 ### `03_Knowledge/`
 这里存放长期知识沉淀。
 当任务涉及概念梳理、方法论整合、背景分析、框架比较时，优先读取这里。
+- `INDEX.md` — 面向内容的统一索引；知识查询先读这里
 - `Templates/Cards/` — 卡片模板
 - `01_Topics/` — 长期关注领域的知识地图与阶段性理解
+- `CHANGELOG.md` — Ingest、Query 写回、Lint/维护与系统演化记录
 
 - 单个概念、观点、模型 → `00_Cards/`
 - 长期领域的综合理解与知识连接 → `01_Topics/`
@@ -97,12 +100,16 @@ last_updated: 2026-08-30
 
 当任务涉及「搭建知识体系、从内容提炼模型、判断知识价值」时，优先使用 `.agents/skills/knowledge-system/` 技能（六步法），并参考 `System/Knowledge_Workflow.md` 的方法论落点映射。
 
+当任务涉及「把来源整合进 Wiki」或「根据知识库回答并沉淀」时，使用 `.agents/skills/llm-wiki/`：先读 INDEX，比较已有知识，更新相关卡片与 Topic，最后同步 INDEX 和 CHANGELOG。
+
 ### `04_References/`
 这里存放外部剪藏：
 - `01_Inbox/`：尚未判断或消化的内容
 - `02_Library/`：已消化且原文本身值得长期保留的精选文章
 
 消化结果应进入知识卡片、项目或任务；原文只有在具有长期引用价值时才进入 Library。主题使用标签和链接组织，不新增分类目录。
+
+来源正文属于证据层：捕获后不为了适配新结论而改写。摘要、质疑和综合理解进入 `03_Knowledge/`；来源移动或删除需要单独确认。
 
 ### `05_Tasks/`
 这里存放任务入口和非项目任务：
@@ -141,6 +148,8 @@ last_updated: 2026-08-30
    - 研究整理任务
    - 产品规划任务
    - 任务管理任务
+   - 知识摄取任务
+   - 知识库查询与综合任务
 
 2. 根据任务类型去读取最相关的上下文
 
@@ -149,6 +158,13 @@ last_updated: 2026-08-30
 4. 尽量复用已有文件中的内容、规则、模板与框架
 
 5. 如果我明确说“请记录”“请写入仓库”“请更新到第二大脑”，则把信息写入合适文件
+
+### LLM Wiki 持续积累闭环
+
+- **Ingest**：来源进入 Inbox 后，比较已有卡片和 Topic；优先更新已有页面，必要时新建，再维护 INDEX 与 CHANGELOG。
+- **Query**：先读 INDEX 并聚焦检索，用内部链接和来源支撑回答；形成可复用的新综合时，提出最小写回方案。
+- **Lint**：定期用 `check-health` 检查矛盾、失效链接、孤立页和标签问题。
+- 人负责选择来源、提出问题与确认重要判断；AI 负责查重、比较、交叉链接、更新综合理解和维护索引。
 
 ---
 
@@ -166,11 +182,13 @@ last_updated: 2026-08-30
 - 最近动态 → 写入当日 `01_Daily/日期.md`
 - 长期规则 → 写入 `System/Writing_Rules.md` 或对应规则文件
 - 长期知识 → 写入 `03_Knowledge/` 对应主题文件
+- 知识页新增、更新或归档 → 同步 `03_Knowledge/INDEX.md`，并记录到 `03_Knowledge/CHANGELOG.md`
 - 尚未分类的新任务 → 写入 `05_Tasks/Inbox.md`
 - 非项目任务 → 写入 `05_Tasks/Tasks.md`
 
 请避免把未经整理的聊天原文直接写进正式知识库。
 优先写成结构化条目。
+普通问答、一次性建议和证据不足的推测不写回；只有可复用的比较、框架、连接或阶段性综合才建议沉淀。
 
 ---
 

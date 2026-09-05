@@ -6,6 +6,8 @@ created: "{{YYYY-MM-DD}}"
 source: "{{出处：URL 或 书名/文章/对话/自己思考}}"
 source_type: "{{原创 / 改编自 X / 转述自 X}}"
 relation: "{{因果/层次/类比/对比/演化/依赖}}"
+use_when:
+  - "{{什么时候会调用这个模型}}"
 related: []
 confidence: "{{high / medium / low（可选，证据充分程度）}}"
 contested: "{{false（有未解决矛盾时设 true）}}"
